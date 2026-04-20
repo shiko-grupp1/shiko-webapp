@@ -1,7 +1,1 @@
-{
-  "version": 3,
-  "sources": [],
-  "names": [],
-  "mappings": "",
-  "file": "main.css"
-}
+{"version":3,"sources":["theme/_colors.scss"],"names":[],"mappings":"AAAE,mBAAA;AASA,qBAAA;AASA,oBAAA;AASA,sBAAA;AASA,oBAAA;AAIA,sBAAA","file":"main.css"}
