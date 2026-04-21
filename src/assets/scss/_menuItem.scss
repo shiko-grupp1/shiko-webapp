@@ -1,0 +1,65 @@
+.menu-item {
+  $active-color: $primary-3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 100vw;
+  padding: 10px;
+  border: 1px solid transparent;
+  background: $white;
+
+  &.active {
+    background:
+      linear-gradient(90deg, rgba($primary-1, 1) 0%, $white 80%) padding-box,
+      linear-gradient(90deg, $primary-2 0%, rgba($primary-2, 0) 80%) border-box;
+
+    & .menu-icon {
+      background-color: $active-color;
+
+      & .svg-icon > path {
+        stroke: $white;
+      }
+    }
+
+    & .menu-text {
+      color: $active-color;
+    }
+
+    & .notification {
+      background-color: $active-color;
+    }
+  }
+
+  & .left-column {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  & .menu-icon {
+    background-color: rgba($secondary-6, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .menu-text {
+    font-size: 22px;
+    font-weight: medium;
+  }
+
+  & .notification {
+    background-color: $secondary-6;
+    border-radius: 100vw;
+    color: $white;
+    min-width: 30px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
