@@ -7,6 +7,7 @@ import "../assets/scss/main.scss";
 const archivo = Archivo({
   subsets: ["latin"],
   weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
