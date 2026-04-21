@@ -1,3 +1,5 @@
+import styles from "./Button.module.scss";
+
 type ButtonProps = {
   children?: React.ReactNode;
   icon?: React.ReactNode;
@@ -16,13 +18,13 @@ export const Button = ({
   icon,
   iconPosition = "left",
   variant = "primary",
-  shape,
+  shape = "rounded",
   size = "medium",
   disabled = false,
   onClick,
 }: ButtonProps) => {
-    const className = `button button--${variant} button--${size} ${shape ? ` button--${shape}` : ""}`;
-
+ const className = `${styles.button} ${styles[`button--${variant}`]} ${styles[`button--${size}`]} ${shape ? styles[`button--${shape}`] : ""}`;
+  
   return <button className={className} disabled={disabled} onClick={onClick} >
     {icon && iconPosition === "left" && icon}
     {children}
