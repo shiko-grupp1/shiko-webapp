@@ -1,3 +1,5 @@
+@use "./theme/_colors.scss" as *;
+
 .menu-item {
   $active-color: $primary-3;
 
@@ -8,6 +10,7 @@
   padding: 10px;
   border: 1px solid transparent;
   background: $white;
+  cursor: pointer;
 
   &.active {
     background:
@@ -48,8 +51,8 @@
   }
 
   & .menu-text {
-    font-size: 22px;
-    font-weight: medium;
+    font-size: 1.25rem;
+    font-weight: 500;
   }
 
   & .notification {

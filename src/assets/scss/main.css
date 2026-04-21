@@ -12,6 +12,7 @@
   padding: 10px;
   border: 1px solid transparent;
   background: #ffffff;
+  cursor: pointer;
 }
 .menu-item.active {
   background: linear-gradient(90deg, #f9ccc8 0%, #ffffff 80%) padding-box, linear-gradient(90deg, #f5958a 0%, rgba(245, 149, 138, 0) 80%) border-box;
@@ -43,8 +44,8 @@
   align-items: center;
 }
 .menu-item .menu-text {
-  font-size: 22px;
-  font-weight: medium;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 .menu-item .notification {
   background-color: #2c3545;
@@ -55,8 +56,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.test {
-  max-width: 310px;
 }/*# sourceMappingURL=main.css.map */
