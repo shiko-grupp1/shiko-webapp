@@ -45,9 +45,9 @@
   --p-1: var(--secondary-6);
   --p-2: var(--primary-3);
   --font-color: var(--black);
-  
-  --p-1-opacity-10: rgba(var(--secondary-6), 0.1);
-  --p-hover-1: rgba(var(--secondary-6), 0.15);
+
+  --p-1-opacity-10: rgb(from var(--secondary-6) r g b / 0.1);
+  --p-hover-1: rgb(from var(--secondary-6) r g b / 0.15);
   --p-2: var(--primary-3);
 }
 
@@ -60,7 +60,7 @@
   box-sizing: border-box;
 }
 
-body { 
+body {
   margin: 0;
   font-family: sans-serif;
 }
