@@ -1,7 +1,5 @@
-@use "./theme/_colors.scss" as *;
-
 .menu-item {
-  $active-color: $primary-3;
+  --active-color: var(--primary-3);
 
   display: flex;
   align-items: center;
@@ -9,28 +7,28 @@
   border-radius: 100vw;
   padding: 10px;
   border: 1px solid transparent;
-  background: $white;
+  background: var(--white);
   cursor: pointer;
 
   &.active {
     background:
-      linear-gradient(90deg, rgba($primary-1, 1) 0%, $white 80%) padding-box,
-      linear-gradient(90deg, $primary-2 0%, rgba($primary-2, 0) 80%) border-box;
+      linear-gradient(90deg, rgba(var(--primary-1), 1) 0%, var(--white) 80%) padding-box,
+      linear-gradient(90deg, var(--primary-2) 0%, rgba(var(--primary-2), 0) 80%) border-box;
 
     & .menu-icon {
-      background-color: $active-color;
+      background-color: var(--active-color);
 
       & .svg-icon > path {
-        stroke: $white;
+        stroke: var(--white);
       }
     }
 
     & .menu-text {
-      color: $active-color;
+      color: var(--active-color);
     }
 
     & .notification {
-      background-color: $active-color;
+      background-color: var(--active-color);
     }
   }
 
@@ -41,7 +39,7 @@
   }
 
   & .menu-icon {
-    background-color: rgba($secondary-6, 0.1);
+    background-color: rgba(var(--secondary-6), 0.1);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -56,9 +54,9 @@
   }
 
   & .notification {
-    background-color: $secondary-6;
+    background-color: var(--secondary-6);
     border-radius: 100vw;
-    color: $white;
+    color: var(--white);
     min-width: 30px;
     min-height: 30px;
     display: flex;
