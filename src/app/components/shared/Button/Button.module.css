@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
+  width: fit-content;
   line-height: 1;
   font-size: 1rem;
   border-radius: 8px;
@@ -11,19 +12,20 @@
     color 0.2s ease;
 }
 
-  /* ====== Variants =============================== */
- .button_primary {
+/* ====== Variants =============================== */
+.button_primary {
   background-color: var(--p-2);
   color: var(--white);
 }
 
 .button_primary:hover {
-  background-color: #c13e1f; /* använd en mörkare färg direkt */
+  background-color: var(--p-hover-2);
 }
 
-  /* &--primary:hover {
-    background-color: darken(var(--p-2, 10%));
-  } */
+.button_primary:focus {
+  outline: 3px solid var(--primary-6);
+  outline-offset: 2px;
+}
 
 .button_secondary {
   background-color: #eee;
@@ -35,7 +37,12 @@
   color: var(--secondary-6);
 }
 
-  /* Need Help?-knappen */
+.button_secondary:focus {
+  outline: 3px solid var(--secondary-5);
+  outline-offset: 2px;
+}
+
+/* Need Help?-knappen */
 .button_neutral {
   background-color: var(--p-1-opacity-10);
   color: var(--secondary-6);
@@ -45,40 +52,40 @@
   background-color: var(--p-hover-1);
 }
 
-  /* ====== Sizes =============================== */
-  /* exempelvis Save-Cancel-knappen */
+.button_neutral:focus {
+  outline: 3px solid var(--secondary-5);
+  outline-offset: 2px;
+}
+/* ====== Sizes =============================== */
+/* exempelvis Save-Cancel-knappen */
 .button_small {
   padding: 0.5rem 0.75rem;
 }
-  /* Standardstorlek för de flesta knappar. Exempelvis Send Invite-knappen */
+/* Standardstorlek för de flesta knappar. Exempelvis Send Invite-knappen */
 .button_medium {
   padding: 0.75rem 0.875rem;
 }
 
-  /* exempelvis: Continue-knappen */
+/* exempelvis: Continue-knappen */
 .button_large {
   padding: 1rem 2rem;
   width: 100%;
 }
 
-  /* ====== Shapes =============================== */
+/* ====== Shapes =============================== */
 .button_square {
   width: 40px;
   height: 40px;
   padding: 0;
 }
 
-  /* exempelvis Help-knappen i headern */
+/* exempelvis Help-knappen i headern */
 .button_pill {
   border-radius: 999px;
 }
 
-  /* ====== Disabled State =============================== */
+/* ====== Disabled State =============================== */
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
-
-
-

@@ -46,9 +46,10 @@
   --p-2: var(--primary-3);
   --font-color: var(--black);
 
-  --p-1-opacity-10: rgb(from var(--secondary-6) r g b / 0.1);
-  --p-hover-1: rgb(from var(--secondary-6) r g b / 0.15);
+  --p-1-opacity-10: hsl(from var(--secondary-6) h s l / 0.1);
+  --p-hover-1: hsl(from var(--secondary-6) h s l / 0.15);
   --p-2: var(--primary-3);
+  --p-hover-2: #d3542f;
 }
 
 /* =====================================
