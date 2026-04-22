@@ -8,7 +8,9 @@
   line-height: 1;
   font-size: 1rem;
   border-radius: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 
   // ====== Variants ===============================
   &--primary {
@@ -21,7 +23,7 @@
   }
 
   &--secondary {
-    background-color: #EEE;
+    background-color: #eee;
     color: colors.$secondary-5;
   }
 
