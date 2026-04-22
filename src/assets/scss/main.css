@@ -4,6 +4,8 @@
 /* Quaternary Colors */
 /* Standard Colors */
 /* Additional Colors */
+@import "../scss/typography.css";
+
 body {
   font-family: var(--font-archivo);
 }
