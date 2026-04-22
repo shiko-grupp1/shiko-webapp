@@ -19,7 +19,7 @@ export default function MenuListItem({ menuItem }: MenuItemProps) {
       <Link href={menuItem.href}>
         <div className={styles["left-column"]}>
           <span className={styles["menu-icon"]}>{menuItem.icon}</span>{" "}
-          <span className={styles["menu-text"]}>{menuItem.text}</span>
+          <span className={`${styles["menu-text"]} body-20`}>{menuItem.text}</span>
         </div>
         {menuItem.notifications ? (
           <div className={styles.notification}>
