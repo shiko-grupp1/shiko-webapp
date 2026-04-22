@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./Toggle.module.scss";
+import styles from "./Toggle.module.css";
 
 type ToggleProps = {
   checked: boolean;
