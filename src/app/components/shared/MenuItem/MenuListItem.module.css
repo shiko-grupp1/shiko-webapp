@@ -12,15 +12,12 @@
 
   &.active {
     background:
-      linear-gradient(90deg, rgba(var(--primary-1), 1) 0%, var(--white) 80%) padding-box,
-      linear-gradient(90deg, var(--primary-2) 0%, rgba(var(--primary-2), 0) 80%) border-box;
+      linear-gradient(90deg, var(--primary-1) 0%, var(--white) 80%) padding-box,
+      linear-gradient(90deg, var(--primary-2) 0%, var(--white) 80%) border-box;
 
     & .menu-icon {
       background-color: var(--active-color);
-
-      & .svg-icon > path {
-        stroke: var(--white);
-      }
+      color: var(--white);
     }
 
     & .menu-text {
