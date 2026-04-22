@@ -9,93 +9,76 @@
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+}
 
   /* ====== Variants =============================== */
-  &--primary {
-    background-color: var(p-2);
-    color: var(--white);
-  }
+ .button_primary {
+  background-color: var(--p-2);
+  color: var(--white);
+}
 
-  &--primary:hover {
+.button_primary:hover {
+  background-color: #c13e1f; /* använd en mörkare färg direkt */
+}
+
+  /* &--primary:hover {
     background-color: darken(var(--p-2, 10%));
-  }
+  } */
 
-  &--secondary {
-    background-color: #eee;
-    color: var(--secondary-5);
-  }
+.button_secondary {
+  background-color: #eee;
+  color: var(--secondary-5);
+}
 
-  &--secondary:hover {
-    background-color: var(--p-hover-1);
-    color: var(--secondary-6);
-  }
+.button_secondary:hover {
+  background-color: var(--p-hover-1);
+  color: var(--secondary-6);
+}
 
   /* Need Help?-knappen */
-  &--neutral {
-    background-color: var(--p-1-opacity-10);
-    color: var(--secondary-6;
-  }
+.button_neutral {
+  background-color: var(--p-1-opacity-10);
+  color: var(--secondary-6);
+}
 
-  &--neutral:hover {
-    background-color: var(--p-hover-1);
-  }
+.button_neutral:hover {
+  background-color: var(--p-hover-1);
+}
 
   /* ====== Sizes =============================== */
   /* exempelvis Save-Cancel-knappen */
-  &--small {
-    padding: 0.5rem 0.75rem;
-  }
-
+.button_small {
+  padding: 0.5rem 0.75rem;
+}
   /* Standardstorlek för de flesta knappar. Exempelvis Send Invite-knappen */
-  &--medium {
-    padding: 0.75rem 0.875rem;
-  }
+.button_medium {
+  padding: 0.75rem 0.875rem;
+}
 
   /* exempelvis: Continue-knappen */
-  &--large {
-    padding: 1rem 2rem;
-    width: 100%;
-  }
+.button_large {
+  padding: 1rem 2rem;
+  width: 100%;
+}
 
   /* ====== Shapes =============================== */
-  &--square {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-  }
+.button_square {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
 
   /* exempelvis Help-knappen i headern */
-  &--pill {
-    border-radius: 999px;
-  }
+.button_pill {
+  border-radius: 999px;
+}
 
   /* ====== Disabled State =============================== */
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-
-button {
-  border: none;
-  background: none;
-  font: inherit;
-  cursor: pointer;
-}
-
---p-1-opacity-10: rgba(var(secondary-6), 0.1);
---p-hover-1: rgba(var(--secondary-6), 0.15);
---p-2: var(--primary-3);

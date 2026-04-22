@@ -1,4 +1,4 @@
-import styles from "./Button.module.scss";
+import styles from "./Button.module.css";
 
 type ButtonProps = {
   children?: React.ReactNode;
@@ -11,7 +11,7 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-/// primary = orange, secondary = grå, neutral = mörkare grå. Rektangulär shape är default
+// primary = orange, secondary = grå, neutral = mörkare grå. Rektangulär shape är default
 
 export const Button = ({
   children,
@@ -23,13 +23,15 @@ export const Button = ({
   disabled = false,
   onClick,
 }: ButtonProps) => {
- const className = `${styles.button} ${styles[`button--${variant}`]} ${styles[`button--${size}`]} ${shape ? styles[`button--${shape}`] : ""}`;
-  
-  return <button className={className} disabled={disabled} onClick={onClick} >
-    {icon && iconPosition === "left" && icon}
-    {children}
-    {icon && iconPosition === "right" && icon}
+  const className = [styles.button, styles[`button_${variant}`], styles[`button_${size}`], shape ? styles[`button_${shape}`] : "",]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <button className={className} disabled={disabled} onClick={onClick}>
+      {icon && iconPosition === "left" && icon}
+      {children}
+      {icon && iconPosition === "right" && icon}
     </button>
+  );
 };
-
-
