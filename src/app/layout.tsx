@@ -5,16 +5,15 @@ import "./globals.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "variable",
   display: "swap",
+  variable: "--font-archivo",
 });
 
 export const metadata: Metadata = {
   title: "",
   description: "",
 };
-
-
 
 export default function RootLayout({
   children,
