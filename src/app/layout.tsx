@@ -1,29 +1,19 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Archivo } from "next/font/google";
+
 import "./globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: "variable",
+  display: "swap",
+  variable: "--font-archivo",
+});
 
 export const metadata: Metadata = {
   title: "",
   description: "",
 };
-
-const archivo = localFont({
-  src: [
-    {
-      path: "./fonts/Archivo-VariableFont.woff2",
-      weight: "100 900",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Archivo-Italic-VariableFont.woff2",
-      weight: "100 900",
-      style: "italic",
-    },
-  ],
-  variable: "--font-archivo",
-  fallback: ["system-ui", "arial", "sans-serif"],
-  display: "swap",
-});
 
 export default function RootLayout({
   children,
