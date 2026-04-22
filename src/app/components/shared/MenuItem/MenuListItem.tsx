@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type MenuItem = {
   icon: React.ReactNode;
   text: string;
@@ -13,7 +15,7 @@ export default function MenuListItem({ menuItem }: MenuItemProps) {
   const itemClassName = `menu-item ${menuItem.isActive ? "active" : ""}`;
   return (
     <li className={itemClassName}>
-      <a href={menuItem.href}>
+      <Link href={menuItem.href}>
         <div className="left-column">
           <span className="menu-icon">{menuItem.icon}</span>{" "}
           <span className="menu-text">{menuItem.text}</span>
@@ -23,7 +25,7 @@ export default function MenuListItem({ menuItem }: MenuItemProps) {
             <span>{menuItem.notifications}</span>
           </div>
         ) : null}
-      </a>
+      </Link>
     </li>
   );
 }
