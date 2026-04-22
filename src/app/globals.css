@@ -46,13 +46,8 @@
   --p-2: var(--primary-3);
   --font-color: var(--black);
 
-<<<<<<< HEAD
-  --p-1-opacity-10: hsl(from var(--secondary-6) h s l / 0.1);
-  --p-hover-1: hsl(from var(--secondary-6) h s l / 0.15);
-=======
   --p-1-opacity-10: rgba(44, 53, 69, 0.1);
   --p-hover-1: rgba(44, 53, 68, 0.15);
->>>>>>> dev
   --p-2: var(--primary-3);
   --p-hover-2: #d3542f;
 }
