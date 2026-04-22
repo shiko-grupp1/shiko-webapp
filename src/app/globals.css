@@ -20,7 +20,7 @@
   --secondary-7: #121720;
 
   /* Tertiary Colors */
-  --tertiary-1: #ECF0FF;
+  --tertiary-1: #ecf0ff;
   --tertiary-2: #bacaff;
   --tertiary-3: #7da2ff;
   --tertiary-4: #007bff;
@@ -82,7 +82,6 @@ body {
 
 h1,
 .h1 {
-  font-family: "Archivo", sans-serif;
   font-size: 3.4375rem;
   font-weight: 700;
   line-height: 1.2;
@@ -90,53 +89,55 @@ h1,
 
 h2,
 .h2 {
-  font-family: "Archivo", sans-serif;
   font-size: 3rem;
   font-weight: 700;
 }
 
 h3,
 .h3 {
-  font-family: "Archivo", sans-serif;
   font-size: 2.375rem;
   font-weight: 700;
 }
 
 h4,
 .h4 {
-  font-family: "Archivo", sans-serif;
   font-size: 1.875rem;
   font-weight: 700;
 }
 
 h5,
 .h5 {
-  font-family: "Archivo", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.body-lg {
+.body-22 {
   font-size: 1.375rem; /* 22px */
   font-weight: 500;
 }
 
-.body-md {
+.body-20 {
   font-size: 1.25rem; /* 20px */
   font-weight: 500;
 }
 
-.body-sm {
+.body-16 {
   font-size: 1rem; /* 16px */
   font-weight: 500;
 }
 
-.body-xs {
+.body-14 {
   font-size: 0.875rem; /* 14px */
   font-weight: 500;
 }
 
-.body-xxs {
+.body-12 {
   font-size: 0.75rem; /* 12px */
   font-weight: 500;
+}
+
+.header-70 {
+  font-size: 4.375rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
