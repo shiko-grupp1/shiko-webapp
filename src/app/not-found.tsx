@@ -29,7 +29,7 @@ const NotFound = async () => {
     "X-API-KEY": apiKey,
   };
 
-  const data = await getData<NotFoundItem>(apiUrl, headers);
+  const data = await getData<NotFoundItem>(apiUrl, headers, 3600);
 
   if (typeof data === "string") return;
 
@@ -45,7 +45,7 @@ const NotFound = async () => {
           src={imageUrl}
           width={"500"}
           height={"500"}
-          className=" md:max-w-md h-auto"
+          className="md:max-w-md h-auto"
           alt="404 image"
         />
         <h1 className="text-center text-white">{title}</h1>
