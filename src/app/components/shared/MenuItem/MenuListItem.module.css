@@ -9,6 +9,10 @@
   cursor: pointer;
   list-style: none;
 
+  &:hover {
+    border-color: var(--primary-4);
+  }
+
   &.active {
     background:
       linear-gradient(90deg, var(--primary-1) 0%, var(--menu-item-bg-clr) 80%) padding-box,
