@@ -1,29 +1,26 @@
 import Link from "next/link";
 import styles from "./MenuListItem.module.css";
 
-type MenuItem = {
+type MenuItemProps = {
   icon: React.ReactNode;
   text: string;
   href: string;
   isActive: boolean;
   notifications?: number;
 };
-type MenuItemProps = {
-  menuItem: MenuItem;
-};
 
-export default function MenuListItem({ menuItem }: MenuItemProps) {
-  const itemClassName = `${styles["menu-item"]} ${menuItem.isActive ? styles["active"] : ""}`;
+export default function MenuListItem({ icon, text, href, isActive, notifications }: MenuItemProps) {
+  const itemClassName = `${styles["menu-item"]} ${isActive ? styles["active"] : ""}`;
   return (
     <li className={itemClassName}>
-      <Link href={menuItem.href}>
+      <Link className={styles["menu-item-content"]} href={href}>
         <div className={styles["left-column"]}>
-          <span className={styles["menu-icon"]}>{menuItem.icon}</span>{" "}
-          <span className={`${styles["menu-text"]} body-20`}>{menuItem.text}</span>
+          <span className={styles["menu-icon"]}>{icon}</span>{" "}
+          <span className={`${styles["menu-text"]} body-20`}>{text}</span>
         </div>
-        {menuItem.notifications ? (
+        {notifications ? (
           <div className={styles.notification}>
-            <span>{menuItem.notifications}</span>
+            <span>{notifications}</span>
           </div>
         ) : null}
       </Link>

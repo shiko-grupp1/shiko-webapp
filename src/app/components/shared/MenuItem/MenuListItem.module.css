@@ -2,14 +2,12 @@
   --active-color: var(--primary-3);
   --menu-item-bg-clr: var(--white);
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   border-radius: 100vw;
   padding: 10px;
   border: 1px solid transparent;
   background: var(--menu-item-bg-clr);
   cursor: pointer;
+  list-style: none;
 
   &.active {
     background:
@@ -28,6 +26,12 @@
     & .notification {
       background-color: var(--active-color);
     }
+  }
+
+  & .menu-item-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   & .left-column {
