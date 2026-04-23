@@ -140,3 +140,52 @@ h5,
   font-weight: 700;
   line-height: 1.2;
 }
+
+/* =====================================
+        SIDEBAR
+===================================== */
+.sidebar {
+  width: 370px;
+  min-width: 370px;
+  background: var(--secondary-1);
+  padding: 30px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-wrapper {
+  padding: 20px;
+  background: var(--secondary-1);
+}
+
+.sidebar a {
+  color: var(--secondary-6);
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.section {
+  color: var(--secondary-4);
+}
+
+.sidebar a.active {
+  background: var(--primary-3);
+  color: white;
+}
+
+.sidebar a:hover {
+  background: var(--secondary-2);
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.layout {
+  display: flex;
+}
