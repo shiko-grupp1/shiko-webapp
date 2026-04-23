@@ -23,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${archivo.className} layout`}>
-        <Sidebar />
+        <div className="sidebar-wrapper">
+          <Sidebar />
+        </div>
         <main>{children}</main>
       </body>
     </html>
