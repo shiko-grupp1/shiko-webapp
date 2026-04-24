@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Button.module.css";
 import Link from "next/link";
 
@@ -81,7 +82,7 @@ export const Button = ({
       </a>
     );
   }
-  // INTERNAL LINK renders as <Link> 
+  // INTERNAL LINK renders as <Link>
   return (
     <Link href={href!} className={className}>
       {content}
