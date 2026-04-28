@@ -165,7 +165,7 @@ h5,
 .sidebar a {
   color: var(--secondary-6);
   display: flex;
-  align-items: center;  
+  align-items: center;
   gap: 12px;
   padding: 10px 12px;
   border-radius: 8px;
@@ -195,4 +195,18 @@ main {
 .layout {
   display: flex;
   min-height: 100vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.001rem;
+}
+
+.logo svg {
+  width: 7rem;
+  height: auto;
+}
+.logo h2 {
+  margin: 0;
 }
