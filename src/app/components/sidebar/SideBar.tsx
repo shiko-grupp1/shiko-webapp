@@ -10,13 +10,17 @@ import ProfileIcon from "../icons/ProfileIcon";
 import TeamIcon from "../icons/TeamIcon";
 import SettingsIcon from "../icons/SettingsIcon";
 import HelpCenterIcon from "../icons/HelpCenterIcon";
+import ShikoLogo from "../icons/ShikoLogoIcon";
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
     <aside className="sidebar">
-      <h2 className="logo">Shiko</h2>
+      <div className="logo">
+        <ShikoLogo />
+        {/* <h2>Shiko</h2> */}
+      </div>
 
       <p className="section">MENU</p>
 
