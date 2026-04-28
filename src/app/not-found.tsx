@@ -16,12 +16,12 @@ const NotFound = async () => {
           className="md:max-w-md h-auto"
           alt="404 image"
         />
-        <h1 className="text-center header-70 text-white">Page Not Found!</h1>
+        <h1 className="text-center body-70 text-white">Page Not Found!</h1>
         <p className="text-center md:text-body-22 text-white/24">
           Sorry, the page you are looking for doesn’t exist or has been removed. Keep exploring out
           site.
         </p>
-        <Button href="/" className="body-24" size="medium" icon={icon} iconPosition="right">
+        <Button href="/" className="body-24 md:mt-8" size="medium" icon={icon} iconPosition="right">
           Back to Home
         </Button>
       </div>
