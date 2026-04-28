@@ -1,23 +1,15 @@
-/* Primary Colors */
-/* Secondary Colors */
-/* Tertiary Colors */
-/* Quaternary Colors */
-/* Standard Colors */
-/* Additional Colors */
 .button {
-  display: inline-block;
-  padding: 0.5rem 2rem;
-  background-color: #ed5735;
-  color: #ffffff;
+  width: 100%;
+  padding: 12px;
   border: none;
-  border-radius: 2rem;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: 0.2s;
 }
-.button:hover, .button:focus {
-  background-color: #b13f25;
-  outline: 3px solid red;
-  outline-offset: 2px;
-}/*# sourceMappingURL=Button.module.css.map */
+
+.button:hover {
+  background-color: #357abd;
+}
