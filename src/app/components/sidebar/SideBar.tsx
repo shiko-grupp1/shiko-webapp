@@ -1,12 +1,12 @@
 "use client";
-import DashboardIcon from "../icons/dashboardIcon";
-import Link from "next/link";
+
 import { usePathname } from "next/navigation";
+import MenuListItem from "../shared/MenuItem/MenuListItem";
+import DashboardIcon from "../icons/dashboardIcon";
+import CoursesIcon from "../icons/CoursesIcon";
 
 export default function Sidebar() {
   const pathname = usePathname();
-
-  const isActive = (path: string) => pathname === path;
 
   return (
     <aside className="sidebar">
@@ -14,42 +14,63 @@ export default function Sidebar() {
 
       <p className="section">MENU</p>
 
-      <nav>
-        <Link className={`sidebar-item ${isActive("/") ? "active" : ""}`} href="/">
-          <DashboardIcon/>
-          <span>Dashboard</span>
-        </Link>
-        <Link className={isActive("/courses") ? "active" : ""} href="/courses">
-          Courses
-        </Link>
-        <Link className={isActive("/calendar") ? "active" : ""} href="/calendar">
-          Calendar
-        </Link>
-        <Link className={isActive("/live") ? "active" : ""} href="/live">
-          Live Class
-        </Link>
-      </nav>
+      <ul>
+        <MenuListItem
+          href="/"
+          text="Dashboard"
+          icon={<DashboardIcon />}
+          isActive={pathname === "/"}
+        />
+
+        <MenuListItem
+          href="/courses"
+          text="Courses"
+          icon={<CoursesIcon />}
+          isActive={pathname === "/courses"}
+        />
+
+        <MenuListItem
+          href="/calendar"
+          text="Calendar"
+          isActive={pathname === "/calendar"}
+        />
+
+        <MenuListItem
+          href="/live"
+          text="Live Class"
+          isActive={pathname === "/live"}
+        />
+      </ul>
 
       <p className="section">GENERAL</p>
 
-      <nav>
-        <Link className={isActive("/profile") ? "active" : ""} href="/profile">
-          Profile
-        </Link>
-        <Link className={isActive("/team") ? "active" : ""} href="/team">
-          Team
-        </Link>
-        <Link className={isActive("/settings") ? "active" : ""} href="/settings">
-          Settings
-        </Link>
-        <Link className={isActive("/help") ? "active" : ""} href="/help">
-          Help Center
-        </Link>
-      </nav>
+      <ul>
+        <MenuListItem
+          href="/profile"
+          text="Profile"
+          isActive={pathname === "/profile"}
+        />
 
-      <Link href="/logout" className="logout">
-        Log Out
-      </Link>
+        <MenuListItem
+          href="/team"
+          text="Team"
+          isActive={pathname === "/team"}
+        />
+
+        <MenuListItem
+          href="/settings"
+          text="Settings"
+          isActive={pathname === "/settings"}
+        />
+
+        <MenuListItem
+          href="/help"
+          text="Help Center"
+          isActive={pathname === "/help"}
+        />
+      </ul>
+
+      {/* logout kan du göra senare om ni vill */}
     </aside>
   );
 }
