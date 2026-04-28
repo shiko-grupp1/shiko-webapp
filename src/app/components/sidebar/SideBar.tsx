@@ -1,5 +1,5 @@
 "use client";
-
+import DashboardIcon from "../icons/dashboardIcon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,8 +15,9 @@ export default function Sidebar() {
       <p className="section">MENU</p>
 
       <nav>
-        <Link className={isActive("/") ? "active" : ""} href="/">
-          Dashboard
+        <Link className={`sidebar-item ${isActive("/") ? "active" : ""}`} href="/">
+          <DashboardIcon/>
+          <span>Dashboard</span>
         </Link>
         <Link className={isActive("/courses") ? "active" : ""} href="/courses">
           Courses
