@@ -4,6 +4,12 @@ import { usePathname } from "next/navigation";
 import MenuListItem from "../shared/MenuItem/MenuListItem";
 import DashboardIcon from "../icons/dashboardIcon";
 import CoursesIcon from "../icons/CoursesIcon";
+import CalendarIcon from "../icons/CalendarIcon";
+import LiveClassIcon from "../icons/LiveClassIcon";
+import ProfileIcon from "../icons/ProfileIcon";
+import TeamIcon from "../icons/TeamIcon";
+import SettingsIcon from "../icons/SettingsIcon";
+import HelpCenterIcon from "../icons/HelpCenterIcon";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -32,12 +38,14 @@ export default function Sidebar() {
         <MenuListItem
           href="/calendar"
           text="Calendar"
+          icon={<CalendarIcon />}
           isActive={pathname === "/calendar"}
         />
 
         <MenuListItem
           href="/live"
           text="Live Class"
+          icon={<LiveClassIcon />}
           isActive={pathname === "/live"}
         />
       </ul>
@@ -48,29 +56,33 @@ export default function Sidebar() {
         <MenuListItem
           href="/profile"
           text="Profile"
+          icon={<ProfileIcon />}
           isActive={pathname === "/profile"}
         />
 
         <MenuListItem
           href="/team"
           text="Team"
+          icon={<TeamIcon />}
           isActive={pathname === "/team"}
         />
 
         <MenuListItem
           href="/settings"
           text="Settings"
+          icon={<SettingsIcon />}
           isActive={pathname === "/settings"}
         />
 
         <MenuListItem
           href="/help"
           text="Help Center"
+          icon={<HelpCenterIcon />}
           isActive={pathname === "/help"}
         />
       </ul>
 
-      {/* logout kan du göra senare om ni vill */}
+      
     </aside>
   );
 }
