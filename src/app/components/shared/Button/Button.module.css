@@ -1,23 +1,100 @@
-/* Primary Colors */
-/* Secondary Colors */
-/* Tertiary Colors */
-/* Quaternary Colors */
-/* Standard Colors */
-/* Additional Colors */
 .button {
-  display: inline-block;
-  padding: 0.5rem 2rem;
-  background-color: #ed5735;
-  color: #ffffff;
-  border: none;
-  border-radius: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  width: fit-content;
+  line-height: 1;
   font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
+  border-radius: 8px;
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
-.button:hover, .button:focus {
-  background-color: #b13f25;
-  outline: 3px solid red;
+
+/* ====== Variants =============================== */
+.button-primary {
+  background-color: var(--p-2);
+  color: var(--white);
+}
+
+.button-primary:hover {
+  background-color: var(--p-hover-2);
+}
+
+.button-primary:focus {
+  outline: 3px solid var(--primary-6);
   outline-offset: 2px;
-}/*# sourceMappingURL=Button.module.css.map */
+}
+
+.button-secondary {
+  background-color: #eee;
+  color: var(--secondary-5);
+}
+
+.button-secondary:hover {
+  background-color: var(--p-hover-1);
+  color: var(--secondary-6);
+}
+
+.button-secondary:focus {
+  outline: 3px solid var(--secondary-5);
+  outline-offset: 2px;
+}
+
+/* e.g Need Help?-button */
+.button-neutral {
+  background-color: var(--p-1-opacity-10);
+  color: var(--secondary-6);
+}
+
+.button-neutral:hover {
+  background-color: var(--p-hover-1);
+}
+
+.button-neutral:focus {
+  outline: 3px solid var(--secondary-5);
+  outline-offset: 2px;
+}
+/* ====== Sizes =============================== */
+/* e.g Save-Cancel-button */
+.button-small {
+  padding: 0.5rem 0.75rem;
+}
+/* Standardsize for most button, e.g Send Invite-button */
+.button-medium {
+  padding: 0.75rem 0.875rem;
+}
+
+/* e.g Continue-button */
+.button-large {
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+/* ====== Shapes =============================== */
+.button-square {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+/* e.g Help-button in header */
+.button-pill {
+  border-radius: 999px;
+}
+
+.button-circle {
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* ====== Disabled State =============================== */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
