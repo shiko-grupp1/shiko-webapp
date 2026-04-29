@@ -1,6 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+// const [collapsed, setCollapsed] = useState(false);
+
 import MenuListItem from "../shared/MenuItem/MenuListItem";
 import DashboardIcon from "../icons/dashboardIcon";
 import CoursesIcon from "../icons/CoursesIcon";
@@ -12,6 +14,8 @@ import SettingsIcon from "../icons/SettingsIcon";
 import HelpCenterIcon from "../icons/HelpCenterIcon";
 import ShikoLogo from "../icons/ShikoLogoIcon";
 import LogoutIcon from "../icons/LogOutIcon";
+import Toggle from "../shared/Toggle/Toggle";
+import { useState } from "react";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -20,7 +24,12 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="logo">
         <ShikoLogo />
-        {/* <h2>Shiko</h2> */}
+
+        {/* <Toggle
+          checked={collapsed}
+          onChange={setCollapsed}
+          label=""
+        /> */}
       </div>
 
       <p className="section">MENU</p>
