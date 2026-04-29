@@ -11,6 +11,7 @@ import TeamIcon from "../icons/TeamIcon";
 import SettingsIcon from "../icons/SettingsIcon";
 import HelpCenterIcon from "../icons/HelpCenterIcon";
 import ShikoLogo from "../icons/ShikoLogoIcon";
+import LogoutIcon from "../icons/LogOutIcon";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -24,7 +25,7 @@ export default function Sidebar() {
 
       <p className="section">MENU</p>
 
-      <ul>
+      <ul className="menu-list">
         <MenuListItem
           href="/"
           text="Dashboard"
@@ -56,7 +57,7 @@ export default function Sidebar() {
 
       <p className="section">GENERAL</p>
 
-      <ul>
+      <ul className="menu-list">
         <MenuListItem
           href="/profile"
           text="Profile"
@@ -83,6 +84,13 @@ export default function Sidebar() {
           text="Help Center"
           icon={<HelpCenterIcon />}
           isActive={pathname === "/help"}
+        />
+
+        <MenuListItem
+          href="/logout"
+          text="Log Out"
+          icon={<LogoutIcon />}
+          isActive={false}
         />
       </ul>
 
