@@ -1,3 +1,7 @@
 export default function Courses() {
-  return <main></main>;
+  return (
+    <section>
+      <h2>Courses</h2>
+    </section>
+  );
 }

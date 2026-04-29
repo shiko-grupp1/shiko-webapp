@@ -1,22 +1,19 @@
 .menu-item {
   --active-color: var(--primary-3);
-  --menu-item-bg-clr: var(--white);
 
-  border-radius: 100vw;
-  padding: 10px;
-  border: 1px solid transparent;
-  background: var(--menu-item-bg-clr);
+  border-radius: 8px;
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
   cursor: pointer;
   list-style: none;
 
   &:hover {
-    border-color: var(--primary-4);
+    background: #f8f9fb;
   }
 
   &.active {
-    background:
-      linear-gradient(90deg, var(--primary-1) 0%, var(--menu-item-bg-clr) 80%) padding-box,
-      linear-gradient(90deg, var(--primary-2) 0%, var(--menu-item-bg-clr) 80%) border-box;
+    background: #fff7f5;
 
     & .menu-icon {
       background-color: var(--active-color);
@@ -36,22 +33,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: inherit;
+    text-decoration: none;
   }
 
   & .left-column {
     display: flex;
-    gap: 15px;
+    gap: 0.75rem;
     align-items: center;
   }
 
   & .menu-icon {
     background-color: var(--p-1-opacity-10);
-    width: 50px;
-    height: 50px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--secondary-5);
+  }
+
+  & .menu-text {
+    color: var(--secondary-7);
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 
   & .notification {

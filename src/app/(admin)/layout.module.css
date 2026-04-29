@@ -1,0 +1,199 @@
+.adminLayout {
+  display: grid;
+  grid-template-columns: 15.5rem minmax(0, 1fr);
+  grid-template-rows: 4.5rem minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 1rem;
+  background: #f5f6f8;
+  color: var(--secondary-7);
+}
+
+.brandCard,
+.header,
+.sidebar {
+  border: 1px solid #edf0f4;
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.brandCard {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 1rem;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 6px;
+  background: var(--secondary-6);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.brandText {
+  color: var(--secondary-7);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.collapseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #f7f8fa;
+  color: var(--secondary-4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.5rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: min(26rem, 46vw);
+  height: 2.7rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: #f7f8fa;
+  color: var(--secondary-4);
+}
+
+.search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--secondary-7);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.searchIcon {
+  display: inline-flex;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #f7f8fa;
+  color: var(--secondary-4);
+}
+
+.userSummary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.userSummary p,
+.userSummary span {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.userSummary p {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.userSummary span {
+  display: block;
+  color: var(--secondary-4);
+  font-size: 0.75rem;
+}
+
+.avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar {
+  padding: 1.25rem;
+}
+
+.navLabel {
+  margin: 0 0 0.65rem;
+  color: var(--secondary-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.menuList {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.mainArea {
+  min-width: 0;
+}
+
+.content {
+  width: 100%;
+  min-height: 100%;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .adminLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .headerActions {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 640px) {
+  .adminLayout {
+    padding: 0.75rem;
+  }
+
+  .userSummary div {
+    display: none;
+  }
+}
