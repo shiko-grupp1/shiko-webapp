@@ -168,7 +168,7 @@ h5,
 .menu-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 12px;
 }
 
 .sidebar-wrapper {
@@ -189,6 +189,7 @@ h5,
   color: var(--secondary-4);
   font-size: 0.75rem;
   margin-top: 0.625rem;
+  margin-bottom: 0.25rem;
 }
 
 .sidebar a.active {
