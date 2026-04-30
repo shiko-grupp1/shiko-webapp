@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import MenuListItem from "../shared/MenuItem/MenuListItem";
 import DashboardIcon from "../icons/dashboardIcon";
@@ -14,91 +14,98 @@ import HelpCenterIcon from "../icons/HelpCenterIcon";
 import LogoutIcon from "../icons/LogOutIcon";
 import Image from "next/image";
 
-import { useState } from "react";
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    router.push("/login");
+  };
 
   return (
     <aside className="sidebar">
-      <div className="logo-container">
-        <div className="logo">
-          <Image src="/images/logo.webp"  width={143} height={35} alt="Shiko logo"></Image>
+      <nav>
+        <div className="logo-container">
+          <div className="logo">
+            <Image loading="eager" src="/images/shikologo.webp" width={143} height={35} alt="Shiko logo"></Image>
+          </div>
         </div>
-      </div>
 
-      <p className="section">MENU</p>
+        <p className="section">MENU</p>
 
-      <ul className="menu-list">
-        <MenuListItem
-          href="/"
-          text="Dashboard"
-          icon={<DashboardIcon />}
-          isActive={pathname === "/"}
-        />
+        <ul className="menu-list">
+          <MenuListItem
+            href="/"
+            text="Dashboard"
+            icon={<DashboardIcon />}
+            isActive={pathname === "/"}
+          />
 
-        <MenuListItem
-          href="/courses"
-          text="Courses"
-          icon={<CoursesIcon />}
-          isActive={pathname === "/courses"}
-        />
+          <MenuListItem
+            href="/courses"
+            text="Courses"
+            icon={<CoursesIcon />}
+            isActive={pathname === "/courses"}
+          />
 
-        <MenuListItem
-          href="/calendar"
-          text="Calendar"
-          icon={<CalendarIcon />}
-          isActive={pathname === "/calendar"}
-        />
+          <MenuListItem
+            href="/calendar"
+            text="Calendar"
+            icon={<CalendarIcon />}
+            isActive={pathname === "/calendar"}
+          />
 
-        <MenuListItem
-          href="/live"
-          text="Live Class"
-          icon={<LiveClassIcon />}
-          isActive={pathname === "/live"}
-        />
-      </ul>
+          <MenuListItem
+            href="/live"
+            text="Live Class"
+            icon={<LiveClassIcon />}
+            isActive={pathname === "/live"}
+          />
+        </ul>
 
-      <p className="section">GENERAL</p>
+        <p className="section">GENERAL</p>
 
-      <ul className="menu-list">
-        <MenuListItem
-          href="/profile"
-          text="Profile"
-          icon={<ProfileIcon />}
-          isActive={pathname === "/profile"}
-        />
+        <ul className="menu-list">
+          <MenuListItem
+            href="/profile"
+            text="Profile"
+            icon={<ProfileIcon />}
+            isActive={pathname === "/profile"}
+          />
 
-        <MenuListItem
-          href="/team"
-          text="Team"
-          icon={<TeamIcon />}
-          isActive={pathname === "/team"}
-        />
+          <MenuListItem
+            href="/team"
+            text="Team"
+            icon={<TeamIcon />}
+            isActive={pathname === "/team"}
+          />
 
-        <MenuListItem
-          href="/settings"
-          text="Settings"
-          icon={<SettingsIcon />}
-          isActive={pathname === "/settings"}
-        />
+          <MenuListItem
+            href="/settings"
+            text="Settings"
+            icon={<SettingsIcon />}
+            isActive={pathname === "/settings"}
+          />
 
-        <MenuListItem
-          href="/help"
-          text="Help Center"
-          icon={<HelpCenterIcon />}
-          isActive={pathname === "/help"}
-        />
+          <MenuListItem
+            href="/help"
+            text="Help Center"
+            icon={<HelpCenterIcon />}
+            isActive={pathname === "/help"}
+          />
+        </ul>
 
-        <MenuListItem
-          href="/logout"
-          text="Log Out"
-          icon={<LogoutIcon />}
-          isActive={false}
-        />
-      </ul>
-
-      
+          <section className="menu-actions">
+            <button className="menu-button" onClick={handleLogout}>
+              <span className="icon">
+                <LogoutIcon />
+              </span>
+              <span>Log Out</span>
+            </button>
+          </section>
+        
+      </nav>
     </aside>
   );
 }
