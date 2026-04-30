@@ -1,6 +1,6 @@
 .adminLayout {
   display: grid;
-  grid-template-columns: 15.5rem minmax(0, 1fr);
+  grid-template-columns: 23.125rem minmax(0, 1fr);
   grid-template-rows: 6.25rem minmax(0, 1fr);
   gap: 1rem;
   min-height: 100vh;
@@ -10,7 +10,6 @@
 }
 
 .logoCard,
-.siteHeader,
 .sidebar {
   border-radius: 18px;
   background: var(--white);
@@ -37,106 +36,13 @@
   background: transparent;
 }
 
-.siteHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0 1.5rem;
-  min-height: 6.25rem;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  width: min(26rem, 46vw);
-  height: 2.7rem;
-  padding: 0 0.9rem;
-  border-radius: 999px;
-  background: var(--color-surface-muted, #f7f8fa);
-  color: var(--secondary-4);
-}
-
-.searchInput {
-  width: 100%;
-  min-width: 0;
-  border: 0;
-  outline: 0;
-  color: var(--secondary-7);
-  font: inherit;
-  font-size: 0.85rem;
-}
-
-.searchIcon {
-  display: inline-flex;
-}
-
-.headerActions {
-  display: flex;
-  align-items: center;
-  gap: 2.75rem;
-  padding: 2rem;
-}
-
-.iconButton.iconButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-surface-muted, #f7f8fa);
-  color: var(--color-text-muted, #aaa);
-  position: relative;
-}
-
-.iconButton + .iconButton::before,
-.userSummary::before {
-  content: "";
-  position: absolute;
-  left: -1.5rem;
-  top: 50%;
-  width: 1.5px;
-  height: 1.5rem;
-  background: var(--color-surface-muted, #f7f8fa);
-  transform: translateY(-50%);
-}
-
-.userSummary img {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.userSummary {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-}
-
-.userSummary p,
-.userSummary span {
-  margin: 0;
-  white-space: nowrap;
-}
-
-.userSummary p {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--p-1);
-}
-
-.userSummary span {
-  display: block;
-  color: var(--color-text-muted);
-  font-size: 1rem;
-}
-
 .sidebar {
   padding: 1.25rem;
   margin-top: 0;
 }
 
 .navLabel {
-  margin: 0 1rem 0 0.25rem;
+  margin: 0 1rem 1.5rem 0.25rem;
   color: var(--color-text-muted);
   font-size: 1rem;
   font-weight: 500;
@@ -169,10 +75,11 @@
 .logoutButton {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 15px;
   width: 100%;
-  padding: 0;
-  border: 0;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 100vw;
   background: transparent;
   color: var(--primary-3);
   font: inherit;
@@ -188,13 +95,10 @@
   border-radius: 50%;
   background: var(--primary-3);
   color: var(--white);
-  margin-bottom: 1rem;
 }
 
-.logoutText {
-  font-weight: 500;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+.logoutButton:hover {
+  border-color: var(--primary-4);
 }
 
 .logoutButton:hover .logoutText {
@@ -218,28 +122,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
   }
-
-  .header {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem;
-  }
-
-  .search {
-    width: 100%;
-  }
-
-  .headerActions {
-    justify-content: space-between;
-  }
 }
 
 @media (max-width: 640px) {
   .adminLayout {
     padding: 0.75rem;
-  }
-
-  .userSummary div {
-    display: none;
   }
 }

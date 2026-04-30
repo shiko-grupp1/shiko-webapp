@@ -3,7 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 
 import styles from "./layout.module.css";
-import AdminHeader from "./AdminHeader";
+import Header from "../components/shared/Header/Header";
 import MenuListItem from "../components/shared/MenuItem/MenuListItem";
 import CoursesIcon from "../components/icons/CoursesIcon";
 import ProfileIcon from "../components/icons/ProfileIcon";
@@ -38,7 +38,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
         />
       </div>
 
-      <AdminHeader />
+      <Header />
 
       <aside className={styles.sidebar}>
         <nav aria-label="Admin navigation">
@@ -76,7 +76,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
             <span className={styles.logoutIcon} aria-hidden="true">
               <Image src="/icons/logout.svg" width={19} height={18} alt="" />
             </span>
-            <span className={styles.logoutText}>Log Out</span>
+            <span className={`${styles.logoutText} body-20`}>Log Out</span>
           </button>
         </section>
       </aside>

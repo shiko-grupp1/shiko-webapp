@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 
-import styles from "./layout.module.css";
-import { Button } from "../components/shared/Button/Button";
-import LetterIcon from "../components/icons/LetterIcon";
-import BellIcon from "../components/icons/BellIcon";
+import styles from "./Header.module.css";
+import { Button } from "../Button/Button";
+import LetterIcon from "../../icons/LetterIcon";
+import BellIcon from "../../icons/BellIcon";
 
 export default function AdminHeader() {
   return (
