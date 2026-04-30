@@ -5,62 +5,35 @@
   gap: 1rem;
   min-height: 100vh;
   padding: 1rem;
-  background: #f5f6f8;
+  background: var(--color-surface-muted);
   color: var(--secondary-7);
 }
 
-.brandCard,
-.header,
+.logoCard,
+.siteHeader,
 .sidebar {
-  border: 1px solid #edf0f4;
-  border-radius: 8px;
+  border-radius: 18px;
   background: var(--white);
 }
 
-.brandCard {
+.logoCard {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
   padding: 0 1rem;
+  min-height: 6.25rem;
 }
 
-.brandMark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 6px;
-  background: var(--secondary-6);
-  color: var(--white);
-  font-size: 1rem;
-  font-weight: 800;
+.logo {
+  background: transparent;
 }
 
-.brandText {
-  color: var(--secondary-7);
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-
-.collapseButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
-  margin-left: auto;
-  border-radius: 50%;
-  background: #f7f8fa;
-  color: var(--secondary-4);
-}
-
-.header {
+.siteHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0 1.5rem;
+  min-height: 6.25rem;
 }
 
 .search {
@@ -71,16 +44,15 @@
   height: 2.7rem;
   padding: 0 0.9rem;
   border-radius: 999px;
-  background: #f7f8fa;
+  background: var(--color-surface-muted);
   color: var(--secondary-4);
 }
 
-.search input {
+.searchInput {
   width: 100%;
   min-width: 0;
   border: 0;
   outline: 0;
-  background: transparent;
   color: var(--secondary-7);
   font: inherit;
   font-size: 0.85rem;
@@ -93,24 +65,44 @@
 .headerActions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2.75rem;
+  padding: 2rem;
 }
 
 .iconButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  background: var(--color-surface-muted);
+  position: relative;
+}
+
+.iconButton path {
+  stroke: var(--color-text-muted);
+}
+
+.iconButton + .iconButton::before,
+.userSummary::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  width: 1.5px;
+  height: 1.5rem;
+  background: var(--color-surface-muted);
+  transform: translateY(-50%);
+}
+
+.userSummary img {
   border-radius: 50%;
-  background: #f7f8fa;
-  color: var(--secondary-4);
+  object-fit: cover;
 }
 
 .userSummary {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  position: relative;
 }
 
 .userSummary p,
@@ -120,32 +112,35 @@
 }
 
 .userSummary p {
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  color: var(--p-1);
 }
 
 .userSummary span {
   display: block;
-  color: var(--secondary-4);
-  font-size: 0.75rem;
-}
-
-.avatar {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  object-fit: cover;
+  color: var(--color-text-muted);
+  font-size: 1rem;
 }
 
 .sidebar {
   padding: 1.25rem;
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .navLabel {
   margin: 0 0 0.65rem;
-  color: var(--secondary-3);
-  font-size: 0.75rem;
-  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -164,7 +159,53 @@
 .content {
   width: 100%;
   min-height: 100%;
-  padding: 0.5rem 0;
+  padding: 1.6rem 1.2rem;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary-3);
+  font: inherit;
+  cursor: pointer;
+}
+
+.logoutSection {
+  margin-top: auto;
+}
+
+.logoutIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  background: var(--primary-3);
+  color: var(--white);
+}
+
+.logoutIcon svg path {
+  stroke: currentColor;
+}
+
+.logoutText {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.logoutButton:hover .logoutText {
+  color: var(--primary-4);
+}
+
+.logoutButton:focus-visible {
+  outline: 3px solid var(--primary-1);
+  outline-offset: 4px;
 }
 
 @media (max-width: 900px) {
