@@ -1,11 +1,11 @@
 .adminLayout {
   display: grid;
   grid-template-columns: 15.5rem minmax(0, 1fr);
-  grid-template-rows: 4.5rem minmax(0, 1fr);
+  grid-template-rows: 6.25rem minmax(0, 1fr);
   gap: 1rem;
   min-height: 100vh;
   padding: 1rem;
-  background: var(--color-surface-muted);
+  background: var(--color-surface-muted, #f7f8fa);
   color: var(--secondary-7);
 }
 
@@ -16,10 +16,20 @@
   background: var(--white);
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
 .logoCard {
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 1rem 0rem 1.5rem;
   min-height: 6.25rem;
 }
 
@@ -44,7 +54,7 @@
   height: 2.7rem;
   padding: 0 0.9rem;
   border-radius: 999px;
-  background: var(--color-surface-muted);
+  background: var(--color-surface-muted, #f7f8fa);
   color: var(--secondary-4);
 }
 
@@ -69,16 +79,13 @@
   padding: 2rem;
 }
 
-.iconButton {
+.iconButton.iconButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-surface-muted);
+  background: var(--color-surface-muted, #f7f8fa);
+  color: var(--color-text-muted, #aaa);
   position: relative;
-}
-
-.iconButton path {
-  stroke: var(--color-text-muted);
 }
 
 .iconButton + .iconButton::before,
@@ -89,7 +96,7 @@
   top: 50%;
   width: 1.5px;
   height: 1.5rem;
-  background: var(--color-surface-muted);
+  background: var(--color-surface-muted, #f7f8fa);
   transform: translateY(-50%);
 }
 
@@ -125,19 +132,11 @@
 
 .sidebar {
   padding: 1.25rem;
-  margin-top: 1.8rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar nav {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  margin-top: 0;
 }
 
 .navLabel {
-  margin: 0 0 0.65rem;
+  margin: 0 1rem 0 0.25rem;
   color: var(--color-text-muted);
   font-size: 1rem;
   font-weight: 500;
@@ -154,12 +153,17 @@
 
 .mainArea {
   min-width: 0;
+  background: var(--color-surface-muted, #f7f8fa);
 }
 
 .content {
   width: 100%;
   min-height: 100%;
-  padding: 1.6rem 1.2rem;
+  padding: 0 1rem;
+}
+
+.logoutSection {
+  margin-top: auto;
 }
 
 .logoutButton {
@@ -175,10 +179,6 @@
   cursor: pointer;
 }
 
-.logoutSection {
-  margin-top: auto;
-}
-
 .logoutIcon {
   display: inline-flex;
   align-items: center;
@@ -188,25 +188,30 @@
   border-radius: 50%;
   background: var(--primary-3);
   color: var(--white);
-}
-
-.logoutIcon svg path {
-  stroke: currentColor;
+  margin-bottom: 1rem;
 }
 
 .logoutText {
   font-weight: 500;
   font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .logoutButton:hover .logoutText {
-  color: var(--primary-4);
+  color: var(--p-hover-2);
+}
+
+.logoutButton:hover .logoutIcon {
+  background-color: var(--p-hover-2);
 }
 
 .logoutButton:focus-visible {
-  outline: 3px solid var(--primary-1);
-  outline-offset: 4px;
+  outline: 3px solid var(--primary-6);
+  outline-offset: 2px;
 }
+
+
+
 
 @media (max-width: 900px) {
   .adminLayout {
