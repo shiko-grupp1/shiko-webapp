@@ -21,8 +21,10 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <div className="logo">
-        <Image src="/images/logo.webp"  width={143} height={35} alt="Shiko logo"></Image>
+      <div className="logo-container">
+        <div className="logo">
+          <Image src="/images/logo.webp"  width={143} height={35} alt="Shiko logo"></Image>
+        </div>
       </div>
 
       <p className="section">MENU</p>
