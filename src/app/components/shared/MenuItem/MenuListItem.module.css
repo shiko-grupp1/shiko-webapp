@@ -1,22 +1,22 @@
 .menu-item {
   --active-color: var(--primary-3);
-  /* för rundad fade?
-  border-radius: 999px;  */
-  border-radius: 8px;
-  padding: 0.5rem;
-  border: 0;
-  background: transparent;
+  --menu-item-bg-clr: var(--white);
+
+  border-radius: 100vw;
+  padding: 10px;
+  border: 1px solid transparent;
+  background: var(--menu-item-bg-clr);
   cursor: pointer;
   list-style: none;
 
   &:hover {
-    background: #f8f9fb;
+    border-color: var(--primary-4);
   }
 
   &.active {
-    /* solid färg, ingen fade?
-     background: linear-gradient(90deg, #fff1ed 0%, rgba(255, 241, 237, 0.65) 55%, rgba(255, 241, 237, 0) 100%); */
-    background: #fff7f5;
+    background:
+      linear-gradient(90deg, var(--primary-1) 0%, var(--menu-item-bg-clr) 80%) padding-box,
+      linear-gradient(90deg, var(--primary-2) 0%, var(--menu-item-bg-clr) 80%) border-box;
 
     & .menu-icon {
       background-color: var(--active-color);
@@ -36,31 +36,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: inherit;
-    text-decoration: none;
   }
 
   & .left-column {
     display: flex;
-    gap: 0.75rem;
+    gap: 15px;
     align-items: center;
   }
 
   & .menu-icon {
     background-color: var(--p-1-opacity-10);
-    width: 2rem;
-    height: 2rem;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--secondary-5);
-  }
-
-  & .menu-text {
-    color: var(--secondary-7);
-    font-size: 0.85rem;
-    font-weight: 600;
   }
 
   & .notification {
