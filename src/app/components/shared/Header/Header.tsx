@@ -7,7 +7,38 @@ import { Button } from "../Button/Button";
 import LetterIcon from "../../icons/LetterIcon";
 import BellIcon from "../../icons/BellIcon";
 
-export default function AdminHeader() {
+type HeaderIconButtonProps = {
+  icon: React.ReactNode;
+  label: string;
+  hasUnread?: boolean;
+  iconClassName?: string;
+};
+
+function HeaderIconButton({ icon, label, hasUnread = false, iconClassName }: HeaderIconButtonProps) {
+  const iconContent = hasUnread ? (
+    <span className={`${styles.iconWithDot} ${iconClassName || ""}`}>
+      {icon}
+      <span className={styles.notificationDot} aria-hidden="true" />
+    </span>
+  ) : (
+    icon
+  );
+
+  return (
+    <span className={styles.iconButtonWrapper}>
+      <Button
+        type="button"
+        shape="circle"
+        variant="neutral"
+        icon={iconContent}
+        className={styles.iconButton}
+        aria-label={label}
+      />
+    </span>
+  );
+}
+
+export default function Header() {
   return (
     <header className={styles.siteHeader}>
       <label className={styles.search}>
@@ -23,22 +54,13 @@ export default function AdminHeader() {
       </label>
 
       <div className={styles.headerActions}>
-        <Button
-          type="button"
-          shape="circle"
-          variant="neutral"
-          icon={<LetterIcon />}
-          className={styles.iconButton}
-          aria-label="Messages"
-        />
+        <HeaderIconButton icon={<LetterIcon />} label="Messages" />
 
-        <Button
-          type="button"
-          shape="circle"
-          variant="neutral"
+        <HeaderIconButton
           icon={<BellIcon />}
-          className={styles.iconButton}
-          aria-label="Notifications"
+          label="Notifications"
+          hasUnread
+          iconClassName={styles.bellIcon}
         />
 
         <div className={styles.userSummary}>

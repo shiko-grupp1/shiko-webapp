@@ -42,7 +42,7 @@
 }
 
 .navLabel {
-  margin: 0 1rem 1.5rem 0.25rem;
+  margin: 0 1rem 1rem 0.25rem;
   color: var(--color-text-muted);
   font-size: 1rem;
   font-weight: 500;
@@ -101,11 +101,11 @@
   border-color: var(--primary-4);
 }
 
-.logoutButton:hover .logoutText {
+.logoutButton:active .logoutText {
   color: var(--p-hover-2);
 }
 
-.logoutButton:hover .logoutIcon {
+.logoutButton:active .logoutIcon {
   background-color: var(--p-hover-2);
 }
 
