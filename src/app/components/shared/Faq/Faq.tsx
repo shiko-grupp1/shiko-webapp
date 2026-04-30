@@ -15,7 +15,7 @@ export default function Faq({ title, answer }: FaqProps) {
     <div className={styles.faq}>
       <button className={styles.question} onClick={() => setOpen(!open)} aria-expanded={open}>
         <span>{title}</span>
-        <span className={styles.icon}>{open ? "−" : "+"}</span>
+        <span className={`${styles.icon} ${open ? styles.active : ""}`}></span>
       </button>
 
       {open && (
