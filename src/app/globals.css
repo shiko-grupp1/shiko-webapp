@@ -42,7 +42,7 @@
   --black: #000000;
 
   /* Additional Colors */
-  --bg: #f7f8f9;
+  --page-bg: #f7f8f9;
   --p-1: var(--secondary-6);
   --p-2: var(--primary-3);
   --font-color: var(--black);
@@ -163,6 +163,7 @@ h5,
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background-color: var(--page-bg);
 }
 
 .menu-list {
@@ -186,7 +187,7 @@ h5,
 }
 
 .section {
-  color: var(--secondary-4);
+  color: #AAA;
   font-size: 0.75rem;
   margin-top: 0.625rem;
   margin-bottom: 0.25rem;
@@ -234,6 +235,17 @@ main {
   width: 7rem;
   height: auto;
 }
+
+.menu-button {
+  padding: 24px 16px;
+  border-radius: 43px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 
 
 /* =====================================
