@@ -1,7 +1,5 @@
-export default function Dashboard() {
-  return (
-    <section>
-      <h2>Dashboard overview</h2>
-    </section>
-  );
+import { redirect } from "next/navigation";
+
+export default function AdminPage() {
+  redirect("/admin/courses");
 }
