@@ -1,5 +1,5 @@
 "use client";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 import styles from "./layout.module.css";
@@ -11,12 +11,12 @@ import RoleAssignmentsIcon from "../components/icons/RoleAssignmentsIcon";
 
 export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
-  const router = useRouter();
 
-const handleLogout = () => {
-  localStorage.removeItem("accessToken");
-  router.push("/login");
-};
+// import { signOut } from "next-auth/react";
+
+// const handleLogout = () => {
+//   signOut({ callbackUrl: "/login" });
+// };
 
   return (
     <div className={styles.adminLayout}>
