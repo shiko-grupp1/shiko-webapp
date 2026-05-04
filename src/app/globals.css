@@ -65,7 +65,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: var(--bg);
+  background-color: var(--page-bg);
 }
 
 button {
@@ -145,6 +145,12 @@ h5,
   font-weight: 500;
 }
 
+.header-semi-40 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .header-70 {
   font-size: 4.375rem;
   font-weight: 700;
@@ -187,7 +193,7 @@ h5,
 }
 
 .section {
-  color: #AAA;
+  color: #aaa;
   font-size: 0.75rem;
   margin-top: 0.625rem;
   margin-bottom: 0.25rem;
@@ -219,7 +225,7 @@ main {
 
 .logo-container {
   background: #fff;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 14px;
   padding: 14px 16px;
 
@@ -227,9 +233,8 @@ main {
   align-items: center;
   justify-content: space-between;
 
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
-
 
 .logo svg {
   width: 7rem;
@@ -244,9 +249,6 @@ main {
   flex-direction: column;
   gap: 10px;
 }
-
-
-
 
 /* =====================================
         RESPONSIVE
