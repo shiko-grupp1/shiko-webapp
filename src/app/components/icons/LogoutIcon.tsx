@@ -1,19 +1,23 @@
 export default function LogoutIcon() {
   return (
-    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path
-        d="M14 6.04045C13.9588 4.87972 13.8216 4.15451 13.3645 3.58671C12.7114 2.77536 11.5944 2.52064 9.3605 2.01121L8.35915 1.78286C4.9649 1.00882 3.26777 0.621798 2.13388 1.51317C1 2.40454 1 4.1257 1 7.56803V12.432C1 15.8743 1 17.5955 2.13388 18.4868C3.26777 19.3782 4.9649 18.9912 8.35915 18.2171L9.3605 17.9888C11.5944 17.4794 12.7114 17.2246 13.3645 16.4133C13.8216 15.8455 13.9588 15.1203 14 13.9595"
+        d="M9 21H5C4.44772 21 4 20.5523 4 20V4C4 3.44772 4.44772 3 5 3H9"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M16 17L21 12L16 7"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M17 7.01172C17 7.01172 20 9.2212 20 10.0117C20 10.8023 17 13.0117 17 13.0117M19.5 10.0117H7"
+        d="M21 12H9"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );

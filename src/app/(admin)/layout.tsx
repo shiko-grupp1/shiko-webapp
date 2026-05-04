@@ -13,18 +13,10 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLogout = async () => {
-    try {
-      await fetch("https://auth-api/logout", {
-        method: "POST",
-        credentials: "include", // do we use cookies?
-      });
-    } catch (error) {
-      console.error("Logout failed", error);
-    } finally {
-      router.push("/login");
-    }
-  };
+const handleLogout = () => {
+  localStorage.removeItem("accessToken");
+  router.push("/login");
+};
 
   return (
     <div className={styles.adminLayout}>
