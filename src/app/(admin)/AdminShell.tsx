@@ -22,7 +22,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
     <div className={styles.adminLayout}>
       <div className={styles.logoCard}>
         <Image
-          src="/images/logo.webp"
+          src="/images/shikologo.webp"
           className={styles.logo}
           width={143}
           height={35}
@@ -62,7 +62,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
           <button
             type="button"
             className={styles.logoutButton}
-            onClick={handleLogout}
+            // onClick={handleLogout}
             aria-label="Log out"
           >
             <span className={styles.logoutIcon} aria-hidden="true">
