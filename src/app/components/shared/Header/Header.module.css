@@ -1,0 +1,155 @@
+.siteHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  min-height: 6.25rem;
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: min(26rem, 46vw);
+  height: 2.7rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: var(--color-surface-muted, #f7f8fa);
+  color: var(--secondary-4);
+}
+
+.searchInput {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--secondary-7);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.searchIcon {
+  display: inline-flex;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+  padding: 2rem;
+}
+
+.iconButtonWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.iconButton.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-muted, #f7f8fa);
+  color: var(--color-text-muted, #aaa);
+  position: relative;
+}
+
+.iconButton svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.iconButton svg path {
+  stroke: currentColor;
+}
+
+.iconWithDot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bellIcon svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.iconButtonWrapper + .iconButtonWrapper::before,
+.userSummary::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  width: 1.5px;
+  height: 1.5rem;
+  background: var(--color-surface-muted, #f7f8fa);
+  transform: translateY(-50%);
+}
+
+.notificationDot {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--primary-3);
+  border: 2px solid var(--color-surface-muted, #f7f8fa);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.userSummary img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userSummary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.userSummary p,
+.userSummary span {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.userSummary p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--p-1);
+}
+
+.userSummary span {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .search {
+    width: 100%;
+  }
+
+  .headerActions {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 640px) {
+  .userSummary div {
+    display: none;
+  }
+}
+
