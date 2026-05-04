@@ -1,3 +1,9 @@
+import CourseDetailsLayout from "../components/courses/courseDetails/CourseDetailsLayout";
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <CourseDetailsLayout />
+    </main>
+  );
 }
