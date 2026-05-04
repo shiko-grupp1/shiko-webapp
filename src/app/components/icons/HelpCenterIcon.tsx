@@ -1,4 +1,4 @@
-export default function ProfileIcon() {
+export default function HelpIcon() {
   return (
     <svg
       width="20"
@@ -9,17 +9,24 @@ export default function ProfileIcon() {
     >
       <circle
         cx="12"
-        cy="8"
-        r="4"
+        cy="12"
+        r="9"
         stroke="currentColor"
         strokeWidth="2"
       />
 
       <path
-        d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
+        d="M9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.2 13.7 10.8 12.9 11.3C12.3 11.7 12 12.1 12 13"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
+      />
+
+      <circle
+        cx="12"
+        cy="17"
+        r="1"
+        fill="currentColor"
       />
     </svg>
   );

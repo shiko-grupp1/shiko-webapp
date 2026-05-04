@@ -1,4 +1,4 @@
-export default function CalendarIcon() {
+export default function TeamIcon() {
   return (
     <svg
       width="20"
@@ -7,41 +7,48 @@ export default function CalendarIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect
-        x="3"
-        y="5"
-        width="18"
-        height="16"
-        rx="2"
+      <circle
+        cx="12"
+        cy="8"
+        r="3"
         stroke="currentColor"
         strokeWidth="2"
-      />
-
-      <path
-        d="M3 9H21"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-
-      <path
-        d="M8 3V7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M16 3V7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
       />
 
       <circle
-        cx="12"
-        cy="14"
-        r="1.5"
-        fill="currentColor"
+        cx="6"
+        cy="10"
+        r="2.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+
+      <circle
+        cx="18"
+        cy="10"
+        r="2.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+
+      <path
+        d="M6 20C6 17.7909 8.68629 16 12 16C15.3137 16 18 17.7909 18 20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M2 20C2 18.3431 3.79086 17 6 17"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M22 20C22 18.3431 20.2091 17 18 17"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );

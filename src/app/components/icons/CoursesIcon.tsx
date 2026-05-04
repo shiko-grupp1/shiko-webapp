@@ -1,11 +1,28 @@
 export default function CoursesIcon() {
   return (
-    <svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
-        d="M6.35709 9.1L7.13155 16.244C7.20548 16.8413 7.56959 17.3618 8.11816 17.5994C9.34317 18.1297 11.6375 19 13.5 19C15.3626 19 17.6569 18.1297 18.8819 17.5994C19.4305 17.3618 19.7946 16.8413 19.8686 16.244L20.6428 9.1M25.1071 7.3V14.0846M13.5 1L1 6.4L13.5 11.8L26 6.4L13.5 1Z"
+        d="M4 6L12 2L20 6L12 10L4 6Z"
         stroke="currentColor"
         strokeWidth="2"
-        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 10L12 14L20 10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 14L12 18L20 14"
+        stroke="currentColor"
+        strokeWidth="2"
         strokeLinejoin="round"
       />
     </svg>
