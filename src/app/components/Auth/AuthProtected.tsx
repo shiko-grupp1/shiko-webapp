@@ -9,7 +9,7 @@ type AuthProtectedProps = {
   allowRoles?: string[];
 };
 
-const redirectLocation = "/api/auth/signin";
+const redirectLocation = "/login";
 
 export default async function AuthProtected({
   children,

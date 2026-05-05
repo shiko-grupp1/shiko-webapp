@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import MenuListItem from "../shared/MenuItem/MenuListItem";
 import DashboardIcon from "../icons/dashboardIcon";
@@ -13,14 +13,13 @@ import SettingsIcon from "../icons/SettingsIcon";
 import HelpCenterIcon from "../icons/HelpCenterIcon";
 import LogoutIcon from "../icons/LogOutIcon";
 import Image from "next/image";
-
+import { signOut } from "next-auth/react";
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleLogout = () => {
-    router.push("/login");
+    signOut();
   };
 
   return (
@@ -28,7 +27,13 @@ export default function Sidebar() {
       <nav>
         <div className="logo-container">
           <div className="logo">
-            <Image loading="eager" src="/images/shikologo.webp" width={143} height={35} alt="Shiko logo"></Image>
+            <Image
+              loading="eager"
+              src="/images/shikologo.webp"
+              width={143}
+              height={35}
+              alt="Shiko logo"
+            ></Image>
           </div>
         </div>
 
@@ -96,15 +101,14 @@ export default function Sidebar() {
           />
         </ul>
 
-          <section className="menu-actions">
-            <button className="menu-button" onClick={handleLogout}>
-              <span className="icon">
-                <LogoutIcon />
-              </span>
-              <span>Log Out</span>
-            </button>
-          </section>
-        
+        <section className="menu-actions">
+          <button className="menu-button" onClick={handleLogout}>
+            <span className="icon">
+              <LogoutIcon />
+            </span>
+            <span>Log Out</span>
+          </button>
+        </section>
       </nav>
     </aside>
   );
