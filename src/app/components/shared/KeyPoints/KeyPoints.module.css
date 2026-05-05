@@ -1,0 +1,26 @@
+.keypointsContainer {
+  margin-top: 1.5rem;
+}
+
+.keypointsList {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.keypointsItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+
+  background-color: var(--color-surface-muted);
+  color: var(--font-color);
+}
+
+.keypointsIcon {
+  color: var(--quaternary-2);
+  font-weight: bold;
+}

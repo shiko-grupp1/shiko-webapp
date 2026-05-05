@@ -1,32 +1,48 @@
+import styles from "./KeyPoints.module.css";
+
 type Props = {
   lessonId: string;
 };
 
 export default async function KeyPoints({ lessonId }: Props) {
-  const res = await fetch(
-    `https://localhost:7289/lessons/${lessonId}/keypoints`,
-    { cache: "no-store" }
-  );
+  let keyPoints: string[] = [];
+  let error: string | null = null;
 
-  if (!res.ok) return <p>No key points</p>;
+  try {
+    const res = await fetch(
+      `http://127.0.0.1:5282/lessons/${lessonId}/keypoints`,
+      { cache: "no-store" }
+    );
 
-  const keyPoints: string[] = await res.json();
+    if (!res.ok) {
+      error = "Failed to load key points";
+    } else {
+      keyPoints = await res.json();
+      console.log("KEYPOINTS:", keyPoints);
+    }
+  } catch (err) {
+    console.error("FETCH ERROR:", err);
+    error = "Something went wrong";
+  }
 
   return (
-    <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-4">Key Points</h2>
+    <div className={styles.keypointsContainer}>
+      <h3 className="h5">Key Points</h3>
 
-      <ul className="space-y-2">
-        {keyPoints.map((kp, i) => (
-          <li
-            key={i}
-            className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg"
-          >
-            <span className="text-green-500">✔</span>
-            {kp}
-          </li>
-        ))}
-      </ul>
+      {error ? (
+        <p className="body-16">{error}</p>
+      ) : keyPoints.length === 0 ? (
+        <p className="body-16">No key points found</p>
+      ) : (
+        <ul className={styles.keypointsList}>
+          {keyPoints.map((kp, i) => (
+            <li key={i} className={styles.keypointsItem}>
+              <span className={styles.keypointsIcon}>✔</span>
+              <span className="body-16">{kp}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
