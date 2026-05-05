@@ -62,7 +62,7 @@ export const authOptions: NextAuthOptions = {
       if (token.accessTokenExpires && Date.now() < (token.accessTokenExpires as number) - 30000)
         return token;
 
-      //TODO: Implement, token refresh logic here if your API supports it
+      //TODO: Implement, token refresh logic here
 
       return token;
     },
