@@ -42,6 +42,7 @@
   --black: #000000;
 
   /* Additional Colors */
+  --light-white: #eee;
   --page-bg: #f7f8f9;
   --p-1: var(--secondary-6);
   --p-2: var(--primary-3);
@@ -66,6 +67,7 @@ body {
   margin: 0;
   font-family: sans-serif;
   background-color: var(--page-bg);
+  /* min-height: 100dvh; */
 }
 
 button {
@@ -340,6 +342,7 @@ main {
   --color-p-1: var(--color-secondary-600);
   --color-p-2: var(--color-primary-300);
   --color-brand-font: #000000;
+  --color-light-white: var(--light-white);
 
   /* --- Typography Tokens --- */
   /* These automatically create utilities like text-h1, text-body-22, etc. */
