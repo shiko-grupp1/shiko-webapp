@@ -1,13 +1,21 @@
+.menu-list-item {
+  list-style: none;
+}
+
 .menu-item {
   --active-color: var(--primary-3);
   --menu-item-bg-clr: var(--white);
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   border-radius: 100vw;
-  padding: 10px;
+  padding: 22px 26px;
   border: 1px solid transparent;
   background: var(--menu-item-bg-clr);
   cursor: pointer;
-  list-style: none;
+  text-decoration: none;
 
   &:hover {
     border-color: var(--primary-4);
@@ -32,12 +40,6 @@
     }
   }
 
-  & .menu-item-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   & .left-column {
     display: flex;
     gap: 15px;
@@ -46,8 +48,8 @@
 
   & .menu-icon {
     background-color: var(--p-1-opacity-10);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;

@@ -12,8 +12,8 @@ type MenuItemProps = {
 export default function MenuListItem({ icon, text, href, isActive, notifications }: MenuItemProps) {
   const itemClassName = `${styles["menu-item"]} ${isActive ? styles["active"] : ""}`;
   return (
-    <li className={itemClassName}>
-      <Link className={styles["menu-item-content"]} href={href}>
+    <li className={styles["menu-list-item"]}>
+      <Link className={itemClassName} href={href}>
         <div className={styles["left-column"]}>
           <span className={styles["menu-icon"]}>{icon}</span>{" "}
           <span className={`${styles["menu-text"]} body-20`}>{text}</span>

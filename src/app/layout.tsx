@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
-
 import "./globals.css";
 
 const archivo = Archivo({
@@ -11,18 +10,20 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  title: "Shiko",
+  description: "Learning platform",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={archivo.className}>{children}</body>
+      <body className={`${archivo.className}`}>
+        {children}
+      </body>
     </html>
   );
 }
