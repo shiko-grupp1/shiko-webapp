@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
           succeeded: true,
           errors: [],
           accessToken:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcklkIjoiMTIzdXNlcmlkIiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl0sImlhdCI6MTUxNjIzOTAyMn0.EkBtg-8o7FpgHYJsUuc69FMDhqXQH69Pa5BDATJ9hkk",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcklkIjoiMTIzdXNlcmlkIiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlN0dWRlbnQiXSwiaWF0IjoxNTE2MjM5MDIyfQ.nRtGxKDnFsCsNHLJOgcrIp-8CemqKmBglRh2avJul3k",
           tokenType: "Bearer",
           expiresIn: 600,
           expiresAtUtc: new Date(Date.now() + 600000).toISOString(),

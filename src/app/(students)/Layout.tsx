@@ -1,14 +1,13 @@
+import AuthProtected from "../components/Auth/AuthProtected";
 import Sidebar from "../components/sidebar/SideBar";
 
-export default function StudentsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function StudentsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="layout">
-      <Sidebar />
-      <main>{children}</main>
-    </div>
+    <AuthProtected allowRoles={["Student", "Instructor"]}>
+      <div className="layout">
+        <Sidebar />
+        <main>{children}</main>
+      </div>
+    </AuthProtected>
   );
 }

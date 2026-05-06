@@ -8,15 +8,12 @@ import MenuListItem from "../components/shared/MenuItem/MenuListItem";
 import CoursesIcon from "../components/icons/CoursesIcon";
 import ProfileIcon from "../components/icons/ProfileIcon";
 import RoleAssignmentsIcon from "../components/icons/RoleAssignmentsIcon";
+import { signOut } from "next-auth/react";
 
 export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
 
-// import { signOut } from "next-auth/react";
-
-// const handleLogout = () => {
-//   signOut({ callbackUrl: "/login" });
-// };
+  const handleLogout = () => signOut();
 
   return (
     <div className={styles.adminLayout}>
@@ -62,7 +59,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
           <button
             type="button"
             className={styles.logoutButton}
-            // onClick={handleLogout}
+            onClick={handleLogout}
             aria-label="Log out"
           >
             <span className={styles.logoutIcon} aria-hidden="true">
