@@ -1,0 +1,128 @@
+.adminLayout {
+  display: grid;
+  grid-template-columns: 23.125rem minmax(0, 1fr);
+  grid-template-rows: 6.25rem minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 1rem;
+  background: var(--color-surface-muted, #f7f8fa);
+  color: var(--secondary-7);
+}
+
+.logoCard,
+.sidebar {
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoCard {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem 0rem 1.5rem;
+  min-height: 6.25rem;
+}
+
+.logo {
+  background: transparent;
+}
+
+.sidebar {
+  padding: 1.25rem;
+  margin-top: 0;
+}
+
+.navLabel {
+  margin: 0 1rem 1rem 0.25rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.menuList {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.mainArea {
+  min-width: 0;
+  background: var(--color-surface-muted, #f7f8fa);
+}
+
+.content {
+  width: 100%;
+  min-height: 100%;
+  padding: 0 1rem;
+}
+
+.logoutActions {
+  margin-top: auto;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 100vw;
+  background: transparent;
+  color: var(--primary-3);
+  font: inherit;
+  cursor: pointer;
+}
+
+.logoutIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  background: var(--primary-3);
+  color: var(--white);
+}
+
+.logoutButton:hover {
+  border-color: var(--primary-4);
+}
+
+.logoutButton:active .logoutText {
+  color: var(--p-hover-2);
+}
+
+.logoutButton:active .logoutIcon {
+  background-color: var(--p-hover-2);
+}
+
+.logoutButton:focus-visible {
+  outline: 3px solid var(--primary-6);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .adminLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .adminLayout {
+    padding: 0.75rem;
+  }
+}

@@ -51,6 +51,9 @@
   --p-hover-1: rgba(44, 53, 68, 0.15);
   --p-2: var(--primary-3);
   --p-hover-2: #d3542f;
+  --color-surface-muted: #f7f8fa;
+  --color-text-muted: #aaa;
+
 }
 
 /* =====================================

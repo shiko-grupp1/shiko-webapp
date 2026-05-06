@@ -11,8 +11,8 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  title: "Shiko",
+  description: "Learning platform",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

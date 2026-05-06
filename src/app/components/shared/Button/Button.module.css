@@ -46,12 +46,12 @@
 
 /* e.g Need Help?-button */
 .button-neutral {
-  background-color: var(--p-1-opacity-10);
+  background-color:#f7f8fa;
   color: var(--secondary-6);
 }
 
 .button-neutral:hover {
-  background-color: var(--p-hover-1);
+  background-color: var(--secondary-1);
 }
 
 .button-neutral:focus {
