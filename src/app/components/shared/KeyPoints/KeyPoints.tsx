@@ -4,18 +4,22 @@ type Props = {
   lessonId: string;
 };
 
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  "https://keypoints-api-osman-dgdebvh3eubzfqgv.polandcentral-01.azurewebsites.net";
+
 export default async function KeyPoints({ lessonId }: Props) {
   let keyPoints: string[] = [];
   let error: string | null = null;
 
   try {
     const res = await fetch(
-      `http://127.0.0.1:5282/lessons/${lessonId}/keypoints`,
+      `${API_BASE_URL}/lessons/${lessonId}/keypoints`,
       { cache: "no-store" }
     );
 
     if (!res.ok) {
-      error = "Failed to load key points";
+      error = `Failed to load key points (${res.status})`;
     } else {
       keyPoints = await res.json();
       console.log("KEYPOINTS:", keyPoints);
