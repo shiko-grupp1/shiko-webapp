@@ -13,10 +13,7 @@ export default async function KeyPoints({ lessonId }: Props) {
   let error: string | null = null;
 
   try {
-    const res = await fetch(
-      `${API_BASE_URL}/lessons/${lessonId}/keypoints`,
-      { cache: "no-store" }
-    );
+    const res = await fetch(`${API_BASE_URL}/lessons/${lessonId}/keypoints`, { cache: "no-store" });
 
     if (!res.ok) {
       error = `Failed to load key points (${res.status})`;
@@ -38,10 +35,10 @@ export default async function KeyPoints({ lessonId }: Props) {
       ) : keyPoints.length === 0 ? (
         <p className="body-16">No key points found</p>
       ) : (
-        <ul className={styles.keypointsList}>
+        <ul className={styles.keypointsGrid}>
           {keyPoints.map((kp, i) => (
             <li key={i} className={styles.keypointsItem}>
-              <span className={styles.keypointsIcon}>✔</span>
+              <span className={styles.check}>✔</span>
               <span className="body-16">{kp}</span>
             </li>
           ))}

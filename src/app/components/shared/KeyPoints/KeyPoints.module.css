@@ -9,6 +9,16 @@
   gap: 0.75rem;
 }
 
+.keypointsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 3rem;
+}
+
+.check {
+    color: var(--primary-3);
+}
+
 .keypointsItem {
   display: flex;
   align-items: center;
