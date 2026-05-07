@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { checkEmailExists } from "./actions";
+import { emailIsVerifiedAction } from "./actions";
+import { redirect } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -12,8 +13,8 @@ export default function LoginPage() {
 
   const handleNext = async () => {
     setError("");
-    const exists = await checkEmailExists(email);
-    if (exists) {
+    const isVerified = await emailIsVerifiedAction(email);
+    if (isVerified) {
       setStep(2);
     } else {
       setError("No account found with that email.");
@@ -22,12 +23,19 @@ export default function LoginPage() {
 
   const handleLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    signIn("credentials", {
+    if (step === 1) return handleNext();
+
+    const result = await signIn("credentials", {
       email,
       password,
-      redirect: true,
-      callbackUrl: "/admin",
+      redirect: false,
     });
+
+    if (result?.error) {
+      return setError("The password do not match your email.");
+    } else {
+      redirect("/profile");
+    }
   };
 
   return (

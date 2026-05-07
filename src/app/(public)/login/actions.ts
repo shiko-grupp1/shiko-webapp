@@ -1,8 +1,7 @@
 "use server";
 
-export async function checkEmailExists(email: string) {
-  console.log("Checking email:", email);
-  const user = true;
+import { emailIsVerified } from "@/lib/helper/email/emailIsVerified";
 
-  return !!user;
+export async function emailIsVerifiedAction(email: string) {
+  return await emailIsVerified(email);
 }

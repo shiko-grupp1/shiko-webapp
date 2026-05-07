@@ -1,3 +1,6 @@
+import { emailIsVerified } from "@/lib/helper/email/emailIsVerified";
+import { isValidEmail } from "@/lib/helper/email/isValidEmail";
+import { refreshAccessTokenError } from "@/lib/variable";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -10,42 +13,51 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // const res = await fetch("https://your-api.com/login", {
-        //   method: "POST",
-        //   body: JSON.stringify(credentials),
-        //   headers: { "Content-Type": "application/json" },
-        // });
+        if (!credentials?.email || !credentials?.password || !isValidEmail(credentials.email))
+          throw new Error("InvalidEmailFormat");
 
-        // const data = await res.json();
+        try {
+          const authApiUrl = process.env.AUTHENTICATION_API_URL;
 
-        const data = {
-          succeeded: true,
-          errors: [],
-          accessToken:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcklkIjoiMTIzdXNlcmlkIiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlN0dWRlbnQiXSwiaWF0IjoxNTE2MjM5MDIyfQ.nRtGxKDnFsCsNHLJOgcrIp-8CemqKmBglRh2avJul3k",
-          tokenType: "Bearer",
-          expiresIn: 600,
-          expiresAtUtc: new Date(Date.now() + 600000).toISOString(),
-          refreshToken: "mock-refresh-token-abc",
-          user: {
-            userId: "16fc71d2-101c-41da-b6db-e9c3ac54c0c6",
-            email: "admin@shiko.com",
-            roles: ["Admin"],
-          },
-        };
+          const res = await fetch(`${authApiUrl}/login`, {
+            method: "POST",
+            body: JSON.stringify({
+              email: credentials.email,
+              password: credentials.password,
+            }),
+            headers: { "Content-Type": "application/json" },
+          });
 
-        if (data)
-          // if (res.ok && data.succeeded)
-          return {
-            id: data.user.userId,
-            token: data.accessToken,
-            refreshToken: data.refreshToken,
-            role: data.user.roles[0],
-            email: data.user.email,
-            expiresIn: data.expiresIn,
-          };
+          const contentType = res.headers.get("content-type");
 
-        return null;
+          if (!contentType || !contentType.includes("application/json")) {
+            console.error("API did not return JSON:", await res.text());
+            throw new Error("ApiError");
+          }
+
+          const data = await res.json();
+
+          if (res.status === 401) throw new Error("InvalidCredentials");
+
+          if (res.ok && data.succeeded) {
+            const isVerified = await emailIsVerified(credentials.email);
+            if (!isVerified) throw new Error("EmailNotVerified");
+
+            return {
+              id: data.user.userId,
+              token: data.accessToken,
+              refreshToken: data.refreshToken,
+              role: data.user.roles[0],
+              email: data.user.email,
+              expiresIn: data.expiresIn,
+            };
+          }
+
+          return null;
+        } catch (error: Error | unknown) {
+          console.error("Auth Exception:", (error as Error).message);
+          throw new Error((error as Error).message || "InternalServerError");
+        }
       },
     }),
   ],
@@ -62,14 +74,42 @@ export const authOptions: NextAuthOptions = {
       if (token.accessTokenExpires && Date.now() < (token.accessTokenExpires as number) - 30000)
         return token;
 
-      //TODO: Implement, token refresh logic here
+      try {
+        const authApiUrl = process.env.AUTHENTICATION_API_URL;
 
-      return token;
+        const res = await fetch(`${authApiUrl}/refresh`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            refreshToken: token.refreshToken,
+          }),
+        });
+
+        if (res.status === 401 || !res.ok) return { ...token, error: refreshAccessTokenError };
+
+        const data = await res.json();
+
+        if (!data.succeeded) return { ...token, error: refreshAccessTokenError };
+
+        return {
+          ...token,
+          accessToken: data.accessToken,
+          refreshToken: data.refreshToken ?? token.refreshToken,
+          accessTokenExpires: Date.now() + data.expiresIn * 1000,
+        };
+      } catch (error) {
+        console.error("Refresh Token Error:", error);
+        return { ...token, error: refreshAccessTokenError };
+      }
     },
     async session({ session, token }) {
       session.accessToken = token.accessToken;
       session.user.id = token.id as string;
       session.user.role = token.role as string;
+      session.error = token.error;
+
       return session;
     },
   },
