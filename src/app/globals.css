@@ -53,7 +53,6 @@
   --p-hover-2: #d3542f;
   --color-surface-muted: #f7f8fa;
   --color-text-muted: #aaa;
-
 }
 
 /* =====================================
@@ -195,7 +194,7 @@ h5,
 }
 
 .section {
-  color: #AAA;
+  color: #aaa;
   font-size: 0.75rem;
   margin-top: 0.625rem;
   margin-bottom: 0.25rem;
@@ -227,7 +226,7 @@ main {
 
 .logo-container {
   background: #fff;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 14px;
   padding: 14px 16px;
 
@@ -237,7 +236,6 @@ main {
 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
-
 
 .logo svg {
   width: 7rem;
@@ -253,15 +251,11 @@ main {
   gap: 10px;
 }
 
-
-
-
 /* =====================================
         RESPONSIVE
 ===================================== */
 
 @media (max-width: 768px) {
-
   h1,
   .h1 {
     font-size: 2.25rem;
