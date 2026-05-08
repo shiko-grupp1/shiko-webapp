@@ -16,6 +16,7 @@ export async function emailIsVerified(email: string): Promise<EmailVerificationR
       body: JSON.stringify({
         email: email,
       }),
+      next: { revalidate: 0 },
     });
 
     if (!res.ok) return { status: res.status, error: "Failed to check email verification" };
