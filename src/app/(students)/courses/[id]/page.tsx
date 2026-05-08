@@ -9,7 +9,7 @@ export default async function CoursePage({ params }: Props) {
 
   return (
     <div>
-      <h2 className="h2">Course Details</h2>
+      {/* <h2 className="h2">Course Details</h2> */}
       <KeyPoints lessonId={id} />
     </div>
   );
