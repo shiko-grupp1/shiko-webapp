@@ -4,12 +4,6 @@
   background-color: var(--page-bg);
 }
 
-.keypointsList {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
 
 .keypointsGrid {
     display: grid;
