@@ -5,9 +5,8 @@ type Props = {
   lessonId: string;
 };
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ??
-  "https://keypoints-api-osman-dgdebvh3eubzfqgv.polandcentral-01.azurewebsites.net";
+const API_BASE_URL = process.env.NEXT_PUBLIC_KEYPOINTS_API_URL;
+
 
 export default async function KeyPoints({ lessonId }: Props) {
   let keyPoints: string[] = [];
