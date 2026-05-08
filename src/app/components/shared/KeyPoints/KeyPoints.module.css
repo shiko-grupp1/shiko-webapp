@@ -1,6 +1,7 @@
 .keypointsContainer {
   margin-top: 1.5rem;
   max-width: 38rem;
+  background-color: var(--page-bg);
 }
 
 .keypointsList {
@@ -17,9 +18,11 @@
     margin-top: 1rem;
 }
 
-.check {
+.checkIcon {
     color: var(--primary-3);
     font-size: 0.9rem;
+    width: 0.875rem;
+    height: 0.875rem;
 }
 
 .keypointsItem {
@@ -31,7 +34,7 @@
   min-height: 48px;
 
   background-color: var(--color-surface-muted);
-  color: var(--font-color);
+  color: #AAA;
 }
 
 .keypointsIcon {

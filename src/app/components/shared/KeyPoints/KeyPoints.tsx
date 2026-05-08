@@ -1,3 +1,4 @@
+import CheckIcon from "../../icons/CheckIcon";
 import styles from "./KeyPoints.module.css";
 
 type Props = {
@@ -38,7 +39,7 @@ export default async function KeyPoints({ lessonId }: Props) {
         <ul className={styles.keypointsGrid}>
           {keyPoints.map((kp, i) => (
             <li key={i} className={styles.keypointsItem}>
-              <span className={styles.check}>✔</span>
+              <CheckIcon className={styles.checkIcon} />
               <span className="body-16">{kp}</span>
             </li>
           ))}
