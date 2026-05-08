@@ -13,8 +13,8 @@ export default function LoginPage() {
 
   const handleNext = async () => {
     setError("");
-    const isVerified = await emailIsVerifiedAction(email);
-    if (isVerified) {
+    const emailRes = await emailIsVerifiedAction(email);
+    if (emailRes.isVerified && emailRes.status === 200) {
       setStep(2);
     } else {
       setError("No account found with that email.");

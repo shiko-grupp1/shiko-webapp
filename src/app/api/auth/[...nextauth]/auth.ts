@@ -1,6 +1,6 @@
-import { emailIsVerified } from "@/lib/helper/email/emailIsVerified";
-import { isValidEmail } from "@/lib/helper/email/isValidEmail";
-import { refreshAccessTokenError } from "@/lib/variable";
+import { emailIsVerified } from "@/app/lib/helper/email/emailIsVerified";
+import { isValidEmail } from "@/app/lib/helper/email/isValidEmail";
+import { refreshAccessTokenError } from "@/app/lib/variable";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -41,7 +41,7 @@ export const authOptions: NextAuthOptions = {
 
           if (res.ok && data.succeeded) {
             const isVerified = await emailIsVerified(credentials.email);
-            if (!isVerified) throw new Error("EmailNotVerified");
+            if (!isVerified.isVerified) throw new Error("EmailNotVerified");
 
             return {
               id: data.user.userId,
