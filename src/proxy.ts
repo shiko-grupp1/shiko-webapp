@@ -9,7 +9,7 @@ export default withAuth(
     const path = req.nextUrl.pathname;
 
     if (path.startsWith(loginRedirectLocation) && req.nextauth.token) {
-      const redirectedPath = role === "Admin" ? "/admin" : "/student";
+      const redirectedPath = role === "Admin" ? "/admin" : "/";
       return NextResponse.redirect(new URL(redirectedPath, req.url));
     }
 
