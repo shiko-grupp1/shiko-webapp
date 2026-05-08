@@ -4,13 +4,12 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { UserRole } from "@/types/roles";
+import { loginRedirectLocation } from "@/app/lib/variable";
 
 type AuthProtectedProps = {
   children: React.ReactNode;
   allowRoles?: UserRole[];
 };
-
-const redirectLocation = "/login";
 
 export default async function AuthProtected({
   children,
@@ -18,7 +17,7 @@ export default async function AuthProtected({
 }: AuthProtectedProps) {
   const session = await getServerSession(authOptions);
 
-  if (!session) redirect(redirectLocation);
+  if (!session) redirect(loginRedirectLocation);
 
   const userRole = session.user.role as UserRole;
 

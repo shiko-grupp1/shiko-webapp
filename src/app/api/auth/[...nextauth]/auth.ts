@@ -1,6 +1,6 @@
 import { emailIsVerified } from "@/app/lib/helper/email/emailIsVerified";
 import { isValidEmail } from "@/app/lib/helper/email/isValidEmail";
-import { refreshAccessTokenError } from "@/app/lib/variable";
+import { loginRedirectLocation, refreshAccessTokenError } from "@/app/lib/variable";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -117,7 +117,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt" as const,
   },
   pages: {
-    signIn: "/login",
+    signIn: loginRedirectLocation,
   },
   secret: process.env.NEXTAUTH_SECRET as string,
 };
