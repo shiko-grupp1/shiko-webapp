@@ -1,7 +1,6 @@
 import { isValidEmail } from "./isValidEmail";
 
 export async function emailIsVerified(email: string): Promise<boolean> {
-  console.log("Checking email verification for:", isValidEmail(email));
   if (!isValidEmail(email)) return false;
 
   try {
