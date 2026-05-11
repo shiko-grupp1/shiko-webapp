@@ -16,6 +16,7 @@ declare module "next-auth" {
     refreshToken: string;
     role: string;
     expiresIn: number;
+    rememberMe: boolean;
   }
 }
 

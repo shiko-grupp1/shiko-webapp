@@ -11,6 +11,7 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
+        remember: { label: "Remember Me", type: "text" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password || !isValidEmail(credentials.email))
@@ -43,6 +44,8 @@ export const authOptions: NextAuthOptions = {
             const isVerified = await emailIsVerified(credentials.email);
             if (!isVerified.isVerified) throw new Error("EmailNotVerified");
 
+            const rememberMe = credentials.remember === "true";
+
             return {
               id: data.user.userId,
               token: data.accessToken,
@@ -50,6 +53,7 @@ export const authOptions: NextAuthOptions = {
               role: data.user.roles[0],
               email: data.user.email,
               expiresIn: data.expiresIn,
+              rememberMe: rememberMe,
             };
           }
 
@@ -69,6 +73,12 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id;
         token.role = user.role;
         token.accessTokenExpires = Date.now() + user.expiresIn * 1000;
+        const thirtyDays = 30 * 24 * 60 * 60;
+        const oneHour = 60 * 60;
+
+        console.log("rememberMe:", user.rememberMe);
+
+        token.exp = Math.floor(Date.now() / 1000) + (user.rememberMe ? thirtyDays : oneHour);
       }
 
       if (token.accessTokenExpires && Date.now() < (token.accessTokenExpires as number) - 30000)

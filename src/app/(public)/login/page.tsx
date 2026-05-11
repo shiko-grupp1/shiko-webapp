@@ -28,6 +28,7 @@ export default function LoginPage() {
     const result = await signIn("credentials", {
       email,
       password,
+      remember: "false", // remember me functionality can be implemented by setting this to true
       redirect: false,
     });
 
