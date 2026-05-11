@@ -38,6 +38,7 @@ export default function LoginPage() {
     } else {
       setError("");
       router.push("/profile");
+      router.refresh();
     }
   };
 
