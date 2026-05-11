@@ -24,7 +24,7 @@
   background-color: var(--p-hover-2);
 }
 
-.button-primary:focus {
+.button-primary:focus-visible {
   outline: 3px solid var(--primary-6);
   outline-offset: 2px;
 }
@@ -39,7 +39,7 @@
   color: var(--secondary-6);
 }
 
-.button-secondary:focus {
+.button-secondary:focus-visible {
   outline: 3px solid var(--secondary-5);
   outline-offset: 2px;
 }
@@ -54,7 +54,7 @@
   background-color: var(--secondary-1);
 }
 
-.button-neutral:focus {
+.button-neutral:focus-visible {
   outline: 3px solid var(--secondary-5);
   outline-offset: 2px;
 }
