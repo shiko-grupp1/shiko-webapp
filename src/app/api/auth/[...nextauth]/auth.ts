@@ -76,8 +76,6 @@ export const authOptions: NextAuthOptions = {
         const thirtyDays = 30 * 24 * 60 * 60;
         const oneHour = 60 * 60;
 
-        console.log("rememberMe:", user.rememberMe);
-
         token.exp = Math.floor(Date.now() / 1000) + (user.rememberMe ? thirtyDays : oneHour);
       }
 
