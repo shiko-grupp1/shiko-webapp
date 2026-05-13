@@ -44,6 +44,8 @@ export default function Skills({ userId }: Props) {
   }, [userId]);
 
   const handleAddSkill = async () => {
+    console.log("ADDING SKILL:");
+    
     if (!newSkill.trim()) return;
 
     try {
