@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import styles from "./Faq.module.css";
 
 type FaqProps = {
@@ -10,17 +10,23 @@ type FaqProps = {
 
 export default function Faq({ title, answer }: FaqProps) {
   const [open, setOpen] = useState(false);
+  const answerId = useId();
 
   return (
-    <div className={styles.faq}>
-      <button className={styles.question} onClick={() => setOpen(!open)} aria-expanded={open}>
-        <span>{title}</span>
+    <div className={`${styles.faq} ${open ? styles.open : ""}`}>
+      <button
+        className={styles.question}
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={answerId}
+      >
+        <span className="body-20">{title}</span>
         <span className={`${styles.icon} ${open ? styles.active : ""}`}></span>
       </button>
 
       {open && (
-        <div className={styles.answer}>
-          <p>{answer}</p>
+        <div id={answerId} className={styles.answer}>
+          <p className="body-14">{answer}</p>
         </div>
       )}
     </div>
