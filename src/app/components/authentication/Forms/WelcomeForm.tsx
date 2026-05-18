@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import InputField from "../../shared/InputField/InputField";
 import Link from "next/link";

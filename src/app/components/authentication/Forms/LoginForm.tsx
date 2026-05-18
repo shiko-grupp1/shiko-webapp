@@ -1,12 +1,15 @@
+"use client";
+
 import { ChangeEvent, SubmitEventHandler, useEffect, useState } from "react";
 import InputField from "../../shared/InputField/InputField";
 import Link from "next/link";
 import { Button } from "../../shared/Button/Button";
 import { UserPlaceholderIcon } from "../../icons/UserPlaceholderIcon";
 import LockPlaceholderIcon from "../../icons/LockPlaceholderIcon";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+    const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
