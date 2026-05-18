@@ -15,7 +15,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
 // import { signOut } from "next-auth/react";
 
 // const handleLogout = () => {
-//   signOut({ callbackUrl: "/login" });
+//   signOut();
 // };
 
   return (
