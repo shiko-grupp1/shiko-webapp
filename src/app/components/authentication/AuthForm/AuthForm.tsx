@@ -1,5 +1,3 @@
-import InputField from "../../shared/InputField/InputField";
-
 type AuthFormProps = {
   title: string;
   paragraph: string;
