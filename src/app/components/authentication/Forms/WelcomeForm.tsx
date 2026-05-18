@@ -7,6 +7,8 @@ import { Button } from "../../shared/Button/Button";
 import { UserPlaceholderIcon } from "../../icons/UserPlaceholderIcon";
 import { useRouter } from "next/navigation";
 import checkEmailStatus from "../../../(public)/welcome/actions";
+import { CheckEmailStatusResponse } from "@/app/(public)/welcome/actions";
+
 
 export default function WelcomeForm() {
   const router = useRouter();
@@ -45,8 +47,8 @@ export default function WelcomeForm() {
     setIsLoading(true);
     setError("");
     try {
-      const data = await checkEmailStatus(email);
-      console.log(data);
+      const data = await checkEmailStatus(email) as CheckEmailStatusResponse;
+      
       if (!data.succeeded) {
         setError(data.error || "Something went wrong");
         return;
@@ -57,13 +59,19 @@ export default function WelcomeForm() {
         return;
       }
 
+      sessionStorage.setItem("email", email);
+
       if (data.emailExists && data.isVerified) {
-        sessionStorage.setItem("email", email);
         router.push("/login");
         return;
       }
 
-      setError("Email address is not verified");
+      if (data.emailExists && !data.isVerified){
+        router.replace("/verification");
+        return;
+      }
+
+      setError("Unexpected problem. Try again later.");
     } catch {
       setError("Network error, please try again");
     } finally {
