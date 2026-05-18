@@ -15,24 +15,48 @@ export default function WelcomeForm() {
 
   function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
     setEmail(event.target.value);
+
+    if (error) {
+      setError("");
+    }
+  }
+
+  function validateEmail(value: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
   async function handleOnSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    setError("");
-    setIsLoading(true);
+    const trimmedEmail = email.trim();
 
+    if (!trimmedEmail) {
+      setError("Email address is required");
+      return;
+    }
+
+    if (!validateEmail(trimmedEmail)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+    setError("");
     try {
       const data = await checkEmailStatus(email);
-
+      console.log(data);
       if (!data.succeeded) {
-        setError(data.errors?.[0] || "Something went wrong");
+        setError(data.error || "Something went wrong");
         return;
       }
 
-      if (data.isVerified) {
-        localStorage.setItem("email", email);
+      if (!data.emailExists) {
+        setError("This email address is not registered. Contact an administartor.");
+        return;
+      }
+
+      if (data.emailExists && data.isVerified) {
+        sessionStorage.setItem("email", email);
         router.push("/login");
         return;
       }

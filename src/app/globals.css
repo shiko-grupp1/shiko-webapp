@@ -67,7 +67,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: var(--bg);
+  background-color: var(--page-bg);
 }
 
 button {
@@ -355,6 +355,7 @@ main {
   --color-p-1: var(--color-secondary-600);
   --color-p-2: var(--color-primary-300);
   --color-brand-font: #000000;
+  --color-muted: var(--color-text-muted);
 
   /* --- Typography Tokens --- */
   /* These automatically create utilities like text-h1, text-body-22, etc. */
