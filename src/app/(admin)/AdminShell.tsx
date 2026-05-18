@@ -7,7 +7,6 @@ import Header from "../components/shared/Header/Header";
 import MenuListItem from "../components/shared/MenuItem/MenuListItem";
 import CoursesIcon from "../components/icons/CoursesIcon";
 import ProfileIcon from "../components/icons/ProfileIcon";
-import RoleAssignmentsIcon from "../components/icons/RoleAssignmentsIcon";
 
 export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
@@ -48,12 +47,6 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
                 text="Users"
                 href="/admin/users"
                 isActive={pathname === "/admin/users"}
-              />
-              <MenuListItem
-                icon={<RoleAssignmentsIcon />}
-                text="Role Assignments"
-                href="/admin/role-assignments"
-                isActive={pathname === "/admin/role-assignments"}
               />
             </ul>
           </section>

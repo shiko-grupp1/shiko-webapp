@@ -1,0 +1,63 @@
+.formCard {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 42rem;
+  padding: 1.5rem;
+  border-radius: 1.75rem;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(18, 23, 32, 0.04);
+}
+
+.field {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.field span {
+  color: var(--secondary-6);
+  font-weight: 700;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0 1rem;
+  border: 1px solid var(--secondary-1);
+  border-radius: 1rem;
+  background: #fbfbfc;
+  color: var(--secondary-7);
+  font: inherit;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--primary-6);
+  outline: none;
+  background: var(--white);
+}
+
+.successMessage,
+.errorMessage {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.successMessage {
+  background: rgba(177, 255, 176, 0.28);
+  color: var(--quaternary-5);
+}
+
+.errorMessage {
+  background: rgba(237, 87, 53, 0.1);
+  color: var(--primary-4);
+}
+
+@media (max-width: 640px) {
+  .formCard {
+    padding: 1.2rem;
+    border-radius: 1.35rem;
+  }
+}
