@@ -25,11 +25,12 @@ export default function LoginForm() {
 
     if (!savedEmail || savedEmail === "") {
       router.replace("/welcome");
+      return;
     }
 
     setFormData((prev) => ({
       ...prev,
-      email: savedEmail || "",
+      email: savedEmail,
     }));
 
     sessionStorage.removeItem("email");
@@ -75,7 +76,7 @@ export default function LoginForm() {
     <>
       {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
-      <form onSubmit={handleOnSubmit} method="post">
+      <form onSubmit={handleOnSubmit} method="post" className="mt-20">
         <InputField
           label="Email address"
           placeholder="Type your email address"

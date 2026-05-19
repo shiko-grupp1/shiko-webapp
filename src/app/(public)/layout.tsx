@@ -11,7 +11,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
     <main>
       <section className="p-8">
         <div className="bg-white rounded-4xl container mx-auto grid grid-cols-[auto_1fr]">
-          <div className="relative max-w-2xl">
+          <div className="relative max-w-3xl">
             <img className="rounded-4xl" aria-hidden="true" src="/images/signin_image.png" />
             <img
               className="absolute top-12 left-12"

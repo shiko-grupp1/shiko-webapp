@@ -83,7 +83,7 @@ export default function WelcomeForm() {
     <>
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      <form onSubmit={handleOnSubmit} method="post">
+      <form onSubmit={handleOnSubmit} method="post" className="mt-20">
         <InputField
           type="email"
           label="Email address"
