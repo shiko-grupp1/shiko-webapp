@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import checkEmailStatus from "../../../(public)/welcome/actions";
 import { CheckEmailStatusResponse } from "@/app/(public)/welcome/actions";
 
-
 export default function WelcomeForm() {
   const router = useRouter();
 
@@ -47,15 +46,17 @@ export default function WelcomeForm() {
     setIsLoading(true);
     setError("");
     try {
-      const data = await checkEmailStatus(email) as CheckEmailStatusResponse;
-      
+      const data = (await checkEmailStatus(email)) as CheckEmailStatusResponse;
+
       if (!data.succeeded) {
         setError(data.error || "Something went wrong");
         return;
       }
 
       if (!data.emailExists) {
-        setError("This email address is not registered. Contact an administartor.");
+        setError(
+          "This email address is not registered. Contact an administrator to be registered."
+        );
         return;
       }
 
@@ -66,7 +67,7 @@ export default function WelcomeForm() {
         return;
       }
 
-      if (data.emailExists && !data.isVerified){
+      if (data.emailExists && !data.isVerified) {
         router.replace("/verification");
         return;
       }
@@ -81,8 +82,6 @@ export default function WelcomeForm() {
 
   return (
     <>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-
       <form onSubmit={handleOnSubmit} method="post" className="mt-20">
         <InputField
           type="email"
@@ -95,13 +94,19 @@ export default function WelcomeForm() {
           onChange={handleOnChange}
         />
 
-        <Link href={"/welcome"} className="text-p-2 body-16 text-right inline-block w-full">
+        <Link
+          href={"/welcome"}
+          className="text-p-2 body-16 text-right inline-block w-full underline"
+        >
           Forgot your email address?
         </Link>
-        <Button type="submit" disabled={isLoading} className="mt-14" size="large">
+
+        <Button type="submit" disabled={isLoading} size="large" className="mt-4">
           Continue
         </Button>
       </form>
+
+      {error && <p className="text-red-500 mb-4 mt-10 text-center">{error}</p>}
     </>
   );
 }

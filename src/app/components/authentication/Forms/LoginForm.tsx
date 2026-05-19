@@ -21,9 +21,10 @@ export default function LoginForm() {
   });
 
   useEffect(() => {
-    const savedEmail = sessionStorage.getItem("email");
+    const savedEmail = sessionStorage.getItem("email")?.trim();
+    console.log(savedEmail);
 
-    if (!savedEmail || savedEmail === "") {
+    if (!savedEmail) {
       router.replace("/welcome");
       return;
     }
@@ -32,8 +33,6 @@ export default function LoginForm() {
       ...prev,
       email: savedEmail,
     }));
-
-    sessionStorage.removeItem("email");
   }, []);
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -59,12 +58,16 @@ export default function LoginForm() {
         return;
       }
 
-      const data = await authenticate(formData.email, formData.password) as AuthenticateResponse;
+      const data = (await authenticate(formData.email, formData.password)) as AuthenticateResponse;
 
       if (!data.succeeded) {
         setError("Invalid credentials");
         return;
       }
+
+      console.log("VALID. LOGGED IN!");
+      //TO DO: add next Auth
+      router.push("/profile");
     } catch {
       setError("Network error, please try again later.");
     } finally {
@@ -74,8 +77,6 @@ export default function LoginForm() {
 
   return (
     <>
-      {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
-
       <form onSubmit={handleOnSubmit} method="post" className="mt-20">
         <InputField
           label="Email address"
@@ -112,14 +113,19 @@ export default function LoginForm() {
               Keep me logged in
             </label>
           </div>
-          <Link href={"/welcome"} className="text-p-2 body-16 text-right inline-block w-full">
-            Forgot your email address?
+          <Link
+            href={"/login"}
+            className="text-p-2 body-16 text-right inline-block w-full underline"
+          >
+            Forgot your password?
           </Link>
         </div>
         <Button disabled={isLoading} className="mt-14" size="large" type="submit">
-          Continue
+          Sign In
         </Button>
       </form>
+
+      {error && <p className="text-red-500 text-center mt-10">{error}</p>}
     </>
   );
 }
