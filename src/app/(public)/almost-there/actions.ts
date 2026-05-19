@@ -1,3 +1,5 @@
+"use server";
+
 export type CompleteUserResponse = {
   succeeded: boolean;
   errors: string[];
@@ -17,7 +19,7 @@ export default async function completeUser(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": process.env.AUTH_API_KEY || "",
+        "X-API-KEY": process.env.AUTH_API_KEY || "",
       },
       body: JSON.stringify({
         email,

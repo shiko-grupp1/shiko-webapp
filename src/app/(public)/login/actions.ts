@@ -21,7 +21,7 @@ export default async function authenticate(email: string, password: string) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": process.env.AUTH_API_KEY || "",
+        "X-API-KEY": process.env.AUTH_API_KEY || "",
       },
       body: JSON.stringify({
         email,

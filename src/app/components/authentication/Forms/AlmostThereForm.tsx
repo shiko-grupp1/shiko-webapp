@@ -24,8 +24,9 @@ export default function AlmostThereForm() {
   });
 
   useEffect(() => {
-    sessionStorage.setItem("email", "dummy@example.com");
+    sessionStorage.setItem("email", "student@domain.com");
     const storedEmail = sessionStorage.getItem("email");
+    console.log(storedEmail);
 
     if (!storedEmail || storedEmail === "") {
       router.replace("/welcome");
@@ -45,9 +46,9 @@ export default function AlmostThereForm() {
       lastName: storedLastName || "",
     }));
 
-    sessionStorage.removeItem("email");
-    sessionStorage.removeItem("firstName");
-    sessionStorage.removeItem("lastName");
+    // sessionStorage.removeItem("email");
+    // sessionStorage.removeItem("firstName");
+    // sessionStorage.removeItem("lastName");
   }, []);
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -104,16 +105,18 @@ export default function AlmostThereForm() {
 
       const data = (await completeUser(
         email,
-        formData.firstName,
-        formData.lastName,
-        formData.password,
-        formData.confirmPassword
+        submittedFirstName,
+        submittedLastName,
+        submittedPassword,
+        submittedConfirmedPassword
       )) as CompleteUserResponse;
 
       if (!data.succeeded) {
         setError(data.errors.join(",") || "An error occurred, please try again.");
         return;
       }
+
+      router.push("/login");
     } catch {
       setError("Network error, please try again later.");
     } finally {

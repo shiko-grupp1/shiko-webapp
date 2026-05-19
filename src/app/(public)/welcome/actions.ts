@@ -15,7 +15,7 @@ export default async function checkEmailStatus(email: string) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": process.env.AUTH_API_KEY || "",
+        "X-API-KEY": process.env.AUTH_API_KEY || "",
       },
       body: JSON.stringify({
         email,
