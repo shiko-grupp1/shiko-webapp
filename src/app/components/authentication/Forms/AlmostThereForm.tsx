@@ -8,6 +8,7 @@ import LockPlaceholderIcon from "../../icons/LockPlaceholderIcon";
 import { Button } from "../../shared/Button/Button";
 import { CompleteUserResponse } from "@/app/(public)/almost-there/actions";
 import completeUser from "@/app/(public)/almost-there/actions";
+import { isValidPassword } from "@/app/utils/validation";
 
 export default function AlmostThereForm() {
   const router = useRouter();
@@ -24,20 +25,21 @@ export default function AlmostThereForm() {
   });
 
   useEffect(() => {
-    sessionStorage.setItem("email", "student@domain.com");
-    const storedEmail = sessionStorage.getItem("email");
+    // sessionStorage.setItem("email", "student@domain.com");   //TESTING, REMOVE THIS LATER
+    const storedEmail = sessionStorage.getItem("email")?.trim();
     console.log(storedEmail);
 
-    if (!storedEmail || storedEmail === "") {
-      router.replace("/welcome");
-    }
-    const storedFirstName = sessionStorage.getItem("firstName");
-    const storedLastName = sessionStorage.getItem("lastName");
-
     if (!storedEmail) {
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("firstName");
+      sessionStorage.removeItem("lastName");
+
       router.replace("/welcome");
       return;
     }
+
+    const storedFirstName = sessionStorage.getItem("firstName");
+    const storedLastName = sessionStorage.getItem("lastName");
 
     setEmail(storedEmail);
     setFormData((prev) => ({
@@ -45,10 +47,6 @@ export default function AlmostThereForm() {
       firstName: storedFirstName || "",
       lastName: storedLastName || "",
     }));
-
-    // sessionStorage.removeItem("email");
-    // sessionStorage.removeItem("firstName");
-    // sessionStorage.removeItem("lastName");
   }, []);
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -58,11 +56,6 @@ export default function AlmostThereForm() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-  }
-
-  function isValidPassword(password: string): boolean {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]).{8,}$/;
-    return passwordRegex.test(password);
   }
 
   async function handleOnSubmit(event: React.SubmitEvent<HTMLFormElement>) {
@@ -115,6 +108,10 @@ export default function AlmostThereForm() {
         setError(data.errors.join(",") || "An error occurred, please try again.");
         return;
       }
+
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("firstName");
+      sessionStorage.removeItem("lastName");
 
       router.push("/login");
     } catch {
