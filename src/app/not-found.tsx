@@ -13,7 +13,7 @@ const NotFound = async () => {
           src={NotFoundImage}
           width={"500"}
           height={"500"}
-          className="md:max-w-md h-auto"
+          className="w-auto md:max-w-md h-auto"
           alt="404 image"
         />
         <h1 className="text-center body-70 text-white">Page Not Found!</h1>
