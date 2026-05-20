@@ -9,12 +9,12 @@ import { Button } from "../../shared/Button/Button";
 import { CompleteUserResponse } from "@/app/(public)/almost-there/actions";
 import completeUser from "@/app/(public)/almost-there/actions";
 import { isValidPassword } from "@/app/utils/validation";
+import { clearRegistrationSession, getStoredSessionEmail } from "@/app/utils/registrationSession";
 
 export default function AlmostThereForm() {
   const router = useRouter();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [email, setEmail] = useState("");
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -26,13 +26,10 @@ export default function AlmostThereForm() {
 
   useEffect(() => {
     // sessionStorage.setItem("email", "student@domain.com");   //TESTING, REMOVE THIS LATER
-    const storedEmail = sessionStorage.getItem("email")?.trim();
-    console.log(storedEmail);
+    const storedEmail = getStoredSessionEmail();
 
     if (!storedEmail) {
-      sessionStorage.removeItem("email");
-      sessionStorage.removeItem("firstName");
-      sessionStorage.removeItem("lastName");
+      clearRegistrationSession();
 
       router.replace("/welcome");
       return;
@@ -41,7 +38,6 @@ export default function AlmostThereForm() {
     const storedFirstName = sessionStorage.getItem("firstName");
     const storedLastName = sessionStorage.getItem("lastName");
 
-    setEmail(storedEmail);
     setFormData((prev) => ({
       ...prev,
       firstName: storedFirstName || "",
@@ -64,6 +60,13 @@ export default function AlmostThereForm() {
     setIsLoading(true);
     setError("");
     try {
+      const storedEmail = getStoredSessionEmail();
+
+      if (!storedEmail) {
+        setError("Session expired");
+        return;
+      }
+
       const submittedFirstName = formData.firstName.trim();
       const submittedLastName = formData.lastName.trim();
       const submittedPassword = formData.password.trim();
@@ -97,7 +100,7 @@ export default function AlmostThereForm() {
       }
 
       const data = (await completeUser(
-        email,
+        storedEmail,
         submittedFirstName,
         submittedLastName,
         submittedPassword,
@@ -109,9 +112,7 @@ export default function AlmostThereForm() {
         return;
       }
 
-      sessionStorage.removeItem("email");
-      sessionStorage.removeItem("firstName");
-      sessionStorage.removeItem("lastName");
+      clearRegistrationSession();
 
       router.push("/login");
     } catch {
