@@ -8,20 +8,16 @@ export async function emailIsVerified(email: string): Promise<EmailVerificationR
   try {
     const authApiUrl = process.env.AUTHENTICATION_API_URL;
 
-    const res = await fetch(
-      `${authApiUrl}/api/authentication/check
-`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-KEY": process.env.AUTH_API_KEY || "",
-        },
-        body: JSON.stringify({
-          email: email,
-        }),
-      }
-    );
+    const res = await fetch(`${authApiUrl}/api/authentication/check`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-KEY": process.env.AUTH_API_KEY || "",
+      },
+      body: JSON.stringify({
+        email: email,
+      }),
+    });
 
     if (!res.ok) return { status: res.status, error: "Failed to check email verification" };
     const data = await res.json();

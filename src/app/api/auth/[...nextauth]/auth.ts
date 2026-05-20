@@ -56,6 +56,7 @@ export const authOptions: NextAuthOptions = {
               role: data.user.roles[0],
               email: data.user.email,
               expiresIn: data.expiresIn,
+              expiresAtUtc: data.expiresAtUtc,
               rememberMe: rememberMe,
             };
           }
@@ -92,6 +93,7 @@ export const authOptions: NextAuthOptions = {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "X-API-KEY": process.env.AUTH_API_KEY || "",
           },
           body: JSON.stringify({
             refreshToken: token.refreshToken,
@@ -129,6 +131,31 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: loginRedirectLocation,
+  },
+  events: {
+    async signOut(message) {
+      const authApiUrl = process.env.AUTHENTICATION_API_URL;
+
+      try {
+        const res = await fetch(`${authApiUrl}/api/authentication/logout`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-KEY": process.env.AUTH_API_KEY || "",
+            authorization: `Bearer ${message.token?.accessToken}`,
+          },
+          body: JSON.stringify({
+            refreshToken: message.token?.refreshToken,
+          }),
+        });
+
+        if (!res.ok && res.status !== 401) {
+          console.error("Unauthorized Sign Out Attempt:", await res.text());
+        }
+      } catch (error) {
+        console.error("Sign Out Error:", error);
+      }
+    },
   },
   secret: process.env.NEXTAUTH_SECRET as string,
 };
