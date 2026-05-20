@@ -20,13 +20,16 @@ export const authOptions: NextAuthOptions = {
         try {
           const authApiUrl = process.env.AUTHENTICATION_API_URL;
 
-          const res = await fetch(`${authApiUrl}/login`, {
+          const res = await fetch(`${authApiUrl}/api/authentication/login`, {
             method: "POST",
             body: JSON.stringify({
               email: credentials.email,
               password: credentials.password,
             }),
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              "X-API-KEY": process.env.AUTH_API_KEY || "",
+            },
           });
 
           const contentType = res.headers.get("content-type");
@@ -85,7 +88,7 @@ export const authOptions: NextAuthOptions = {
       try {
         const authApiUrl = process.env.AUTHENTICATION_API_URL;
 
-        const res = await fetch(`${authApiUrl}/refresh`, {
+        const res = await fetch(`${authApiUrl}/api/authentication/refresh`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
