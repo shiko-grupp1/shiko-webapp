@@ -76,7 +76,7 @@ export const authOptions: NextAuthOptions = {
         token.refreshToken = user.refreshToken;
         token.id = user.id;
         token.role = user.role;
-        token.accessTokenExpires = Date.now() + user.expiresIn * 1000;
+        token.accessTokenExpires = Date.parse(user.expiresAtUtc);
         const thirtyDays = 30 * 24 * 60 * 60;
         const oneHour = 60 * 60;
 
